@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_230151) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_23_012504) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,71 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_230151) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "balances", force: :cascade do |t|
+    t.integer "total"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_balances_on_company_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name_company"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "expense_types", force: :cascade do |t|
+    t.string "expense_types"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "item_name"
+    t.date "date"
+    t.text "description"
+    t.float "amount"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "expense_type_id", null: false
+    t.index ["company_id"], name: "index_expenses_on_company_id"
+    t.index ["expense_type_id"], name: "index_expenses_on_expense_type_id"
+  end
+
+  create_table "incomes", force: :cascade do |t|
+    t.string "item_name"
+    t.date "date"
+    t.text "description"
+    t.float "amount"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_incomes_on_company_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.bigint "subscription_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "payment_method"
+    t.index ["subscription_id"], name: "index_payments_on_subscription_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.date "init_date"
+    t.date "end_date"
+    t.float "price_sub"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,10 +115,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_230151) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "subscription"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "balances", "companies"
+  add_foreign_key "companies", "users"
+  add_foreign_key "expenses", "companies"
+  add_foreign_key "expenses", "expense_types"
+  add_foreign_key "incomes", "companies"
+  add_foreign_key "payments", "subscriptions"
+  add_foreign_key "subscriptions", "users"
 end
