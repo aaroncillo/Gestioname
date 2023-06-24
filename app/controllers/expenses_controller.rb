@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
   # GET /expense
   def index
-    @expenses = Expense.all
+    @expenses = Expense.where(company_id: params[:company_id])
   end
   # GET /expense/1
   def show
