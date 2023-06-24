@@ -80,3 +80,4 @@ end
 
 ## GEMAS AGREGADAS POR NOSOTROS
 gem "cloudinary"
+gem "chartkick"
