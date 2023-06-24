@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
   end
   # GET /restaurants/1/edit
   def edit
+    
   end
   # POST /restaurants
   def create
