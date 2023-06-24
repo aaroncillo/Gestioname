@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resources :incomes, only: %i[new create]
     resources :expenses, only: %i[new create]
   end
+
   resources :balances, only: %i[index show]
   resources :incomes, except: %i[destroy]
   resources :expenses, except: %i[destroy]
+
+  resources :expenses_types
 end
