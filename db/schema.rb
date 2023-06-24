@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_221106) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_24_020601) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_221106) do
   end
 
   create_table "balances", force: :cascade do |t|
-    t.integer "total"
+    t.integer "total", default: 0
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_221106) do
     t.string "item_name"
     t.date "date"
     t.text "description"
-    t.float "amount"
+    t.float "amount", default: 0.0
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -82,7 +82,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_221106) do
     t.string "item_name"
     t.date "date"
     t.text "description"
-    t.float "amount"
+    t.float "amount", default: 0.0
     t.bigint "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -100,7 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_221106) do
   create_table "subscriptions", force: :cascade do |t|
     t.date "init_date"
     t.date "end_date"
-    t.float "price_sub"
+    t.float "price_sub", default: 0.0
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
