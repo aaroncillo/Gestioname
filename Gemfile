@@ -80,9 +80,4 @@ end
 
 ## GEMAS AGREGADAS POR NOSOTROS
 gem "cloudinary"
-<<<<<<< HEAD
-
-gem "annotate", "~> 3.2"
-=======
 gem "chartkick"
->>>>>>> bf9502a03847d77cd885fe12be9955ca67a0591d
