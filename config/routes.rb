@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   resources :incomes, except: %i[destroy]
   resources :expenses, except: %i[destroy]
 
-  resources :expenses_types
+  resources :expense_types
 end
