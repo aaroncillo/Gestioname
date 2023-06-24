@@ -35,8 +35,9 @@ class CompaniesController < ApplicationController
   # DELETE /companys/1
   def destroy
     @company.destroy
-    redirect_to companys_url, notice: "company was successfully destroyed.", status: :see_other
+    redirect_to companies_path, notice: "company was successfully destroyed.", status: :see_other
   end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
