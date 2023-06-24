@@ -1,27 +1,12 @@
-<%= form_with(model: income) do |form| %>
-  <% if income.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(income.errors.count, "error") %> prohibited this income from being saved:</h2>
+<div id="<%= dom_id income %>">
+  <p>
+    <strong>Name:</strong>
+    <%= income.item_name %>
+  </p>
 
-      <ul>
-        <% income.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <p>
+    <strong>Description:</strong>
+    <%= income.description %>
+  </p>
 
-  <div>
-    <%= form.label :item_name, style: "display: block" %>
-    <%= form.text_field :item_name %>
-  </div>
-
-  <div>
-    <%= form.label :income_id, style: "display: block" %>
-    <%= form.text_field :income_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
