@@ -80,3 +80,5 @@ end
 
 ## GEMAS AGREGADAS POR NOSOTROS
 gem "cloudinary"
+
+gem "annotate", "~> 3.2"
