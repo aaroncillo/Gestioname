@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 <h3><%= current_user.first_name %></h3>
-<h3><%= current_user.subscription %></h3>
+<h3>Subscribe: <%= current_user.subscription %></h3>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
