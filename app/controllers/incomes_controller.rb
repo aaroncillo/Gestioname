@@ -1,6 +1,5 @@
 class IncomesController < ApplicationController
-  class IncomesController < ApplicationController
-    before_action :set_income, only: %i[ show edit update destroy ]
+  before_action :set_income, only: %i[ show edit update destroy ]
     # GET /incomes
     def index
       @incomes = Income.all
@@ -47,4 +46,4 @@ class IncomesController < ApplicationController
         params.require(:income).permit(:item_name,:date, :description,:amount, :company_id)
       end
   end
-end
+

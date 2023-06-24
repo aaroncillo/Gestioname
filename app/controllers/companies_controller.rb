@@ -2,7 +2,7 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: %i[ show edit update destroy ]
   # GET /restaurants
   def index
-    @companies = Company.all
+    @companies = Company.where(user_id: current_user.id)
   end
   # GET /restaurants/1
   def show
@@ -13,6 +13,7 @@ class CompaniesController < ApplicationController
   end
   # GET /restaurants/1/edit
   def edit
+
   end
   # POST /restaurants
   def create
