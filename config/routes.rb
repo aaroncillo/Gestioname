@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :balances, only: %i[index show]
   resources :incomes, except: %i[destroy]
   resources :expenses, except: %i[destroy]
+
+  resources :expense_types
 end
