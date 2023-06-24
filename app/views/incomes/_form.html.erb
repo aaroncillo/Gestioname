@@ -9,11 +9,11 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= form.label :item_name, style: "display: block" %>
-    <%= form.text_field :item_name %>
-  </div>
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= simple_form_for [@income] do |f| %>
+    <%= f.input :item_name %>
+    <%= f.input :description %>
+    <%= f.input :date, order: [:day, :month, :year], html5:true %>
+    <%= f.input :company_id %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
