@@ -1,2 +1,8 @@
 <h1>Incomes#index</h1>
 <p>Find me in app/views/incomes/index.html.erb</p>
+<ul>
+  <% @incomes.each do |income| %>
+    <li><%= income.item_name %></li>
+  <% end %>
+</ul>
+<%= link_to "Company", companies_path %>
