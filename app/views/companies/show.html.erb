@@ -1,2 +1,14 @@
 <%= render @company %>
+<div>
 <%= link_to "expenses", company_expenses_path(@company) %>
+<%= link_to "incomes", company_incomes_path(@company) %>
+</div>
+<div>
+<%= link_to "Back to companies", companies_path %>
+</div>
+<div>
+<%= link_to "Edit company", edit_company_path(@company) %>
+</div>
+<div>
+<%= link_to "Delete this company", @copmany, method: :delete %>
+</div>
