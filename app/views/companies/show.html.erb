@@ -11,5 +11,5 @@
 <%= link_to "Edit company", edit_company_path(@company) %>
 </div>
 <div>
-<%= link_to "Delete this company", @copmany, method: :delete %>
+<%= link_to "Delete this company", company_path(@company), data:{turbo_method: :delete, turbo_confirmation: "Are you sure?" }%>
 </div>
