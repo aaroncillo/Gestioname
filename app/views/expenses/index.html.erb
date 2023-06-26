@@ -1,6 +1,10 @@
 <h1>Expenses#index</h1>
 <p>Find me in app/views/expenses/index.html.erb</p>
-<% @expenses.each do |expense| %>
-<%= expense.item_name %>
-<% end %>
-<%= console %>
+<ul>
+  <% @expenses.each do |expense| %>
+    <li><%= expense.item_name %> <%= expense.amount %></li>
+  <% end %>
+</ul>
+<%= link_to "Company", companies_path %>
+<%= link_to "New Expense", new_company_expense_path %>
+<%= link_to "Create Expense Category", new_company_expense_type_path%>
