@@ -2,19 +2,19 @@ class ExpensesTypesController < ApplicationController
   before_action :set_expense_type, only: %i[ edit update destroy ]
   # GET /expense
   def index
-    @expenses_types = Expense_Type.where(company_id: params[:company_id])
+    @expenses_types = ExpenseType.where(company_id: params[:company_id])
   end
 
   # GET /expense_type_new
   def new
-    @expense_type= Expense_Type.new
+    @expense_type= ExpenseType.new
   end
   # GET /expense_type1/edit
   def edit
   end
   # POST /expense_type
     def create
-    @expense_type= Expense_Type.new(expense_type)
+    @expense_type= ExpenseType.new(expense_type)
     if @expense_type.save
       redirect_to @expense, notice: "expense_type was successfully created."
     else
