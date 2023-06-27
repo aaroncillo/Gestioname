@@ -8,7 +8,8 @@ class ExpenseTypesController < ApplicationController
 
   # GET /expense_types/new
   def new
-    @expense_type = ExpenseType.new
+    @company = Company.find(params[:company_id])
+    @expense_types = ExpenseType.new
   end
 
   # GET /expense_types/1/edit
@@ -17,9 +18,11 @@ class ExpenseTypesController < ApplicationController
 
   # POST /expense_types
   def create
-    @expense_type = ExpenseType.new(expense_type_params)
-    if @expense_type.save
-      redirect_to @expense_type, notice: "Expense type was successfully created."
+    @company = Company.find(params[:company_id])
+    @expense_types = ExpenseType.new(expense_type_params)
+    @expense_types.company = @company
+    if @expense_types.save
+      redirect_to new_company_expense_path, notice: "Expense type was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
