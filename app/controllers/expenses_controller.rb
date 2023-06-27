@@ -9,6 +9,8 @@ class ExpensesController < ApplicationController
   end
   # GET /expense/new
   def new
+    @company = Company.find(params[:company_id])
+    @company_categories = ExpenseType.where(company_id: @company.id).map{|services| services.expense_category}
     @expense = Expense.new
   end
   # GET /expense/1/edit
@@ -16,7 +18,9 @@ class ExpensesController < ApplicationController
   end
   # POST /expense
   def create
-    @expense = Expense.new(expense)
+    @expense = Expense.new(expense_params)
+    @company = Company.find(params[:company_id])
+    @expense_types = @company.expense_types
     if @expense.save
       redirect_to @expense, notice: "expense was successfully created."
     else
@@ -43,6 +47,6 @@ class ExpensesController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def expense_params
-      params.require(:expense).permit(:item_name,:date, :description,:amount, :company)
+      params.require(:expense).permit(:item_name, :date, :description, :amount, :company_id, :expense_type_id)
     end
 end

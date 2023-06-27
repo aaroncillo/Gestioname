@@ -1,27 +1,7 @@
-<%= form_with(model: expense_type) do |form| %>
-  <% if expense_type.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(expense_type.errors.count, "error") %> prohibited this expense_type from being saved:</h2>
+<div id="<%= dom_id expenseType %>">
+  <p>
+    <strong>Name:</strong>
+    <%= expense_types.expense_category %>
+  </p>
 
-      <ul>
-        <% expense_type.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :expense_category, style: "display: block" %>
-    <%= form.text_field :expense_category %>
-  </div>
-
-  <div>
-    <%= form.label :expense_type_id, style: "display: block" %>
-    <%= form.text_field :expense_type_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
