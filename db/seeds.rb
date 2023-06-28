@@ -56,25 +56,25 @@ income_ceci2 = Income.create!(company_id: compañia2_ceci.id, item_name: "Zapato
 
 # Creacion del tipo de gasto de Matias empresa 1 (solo 3)
 puts "Creando Tipos de Gastos de Matias empresa 1"
-expense_type_mati = ExpenseType.create!(expense_category: "Arriendo")
-expense_type_mati2 = ExpenseType.create!(expense_category: "Servicios básicos")
-expense_type_mati3 = ExpenseType.create!(expense_category: "Personal")
+expense_type_mati = ExpenseType.create!(expense_category: "Arriendo",company_id: compañia1_mati.id )
+expense_type_mati2 = ExpenseType.create!(expense_category: "Servicios básicos",company_id: compañia1_mati.id )
+expense_type_mati3 = ExpenseType.create!(expense_category: "Personal",company_id: compañia1_mati.id )
 
 # Creacion del tipo de gasto de Cecilia empresa 1 (solo 5)
 puts "Creando Tipos de Gastos de Cecilia empresa 1"
-expense_type_ceci1 = ExpenseType.create!(expense_category: "Arriendo")
-expense_type_ceci2 = ExpenseType.create!(expense_category: "Servicios básicos")
-expense_type_ceci3 = ExpenseType.create!(expense_category: "Personal")
-expense_type_ceci4 = ExpenseType.create!(expense_category: "Proveedores")
-expense_type_ceci5 = ExpenseType.create!(expense_category: "Transporte")
+expense_type_ceci1 = ExpenseType.create!(expense_category: "Arriendo",company_id: compañia1_ceci.id)
+expense_type_ceci2 = ExpenseType.create!(expense_category: "Servicios básicos",company_id: compañia2_ceci.id)
+expense_type_ceci3 = ExpenseType.create!(expense_category: "Personal",company_id: compañia1_ceci.id)
+expense_type_ceci4 = ExpenseType.create!(expense_category: "Proveedores",company_id: compañia1_ceci.id)
+expense_type_ceci5 = ExpenseType.create!(expense_category: "Transporte",company_id: compañia1_ceci.id)
 
 # Creacion del tipo de gasto de Cecilia empresa 2 (solo 5)
 puts "Creando Tipos de Gastos de Cecilia empresa 2"
-expense_type_ceci6 = ExpenseType.create!(expense_category: "Arriendo")
-expense_type_ceci7 = ExpenseType.create!(expense_category: "Marketing")
-expense_type_ceci8 = ExpenseType.create!(expense_category: "Servicios básicos")
-expense_type_ceci9 = ExpenseType.create!(expense_category: "Personal")
-expense_type_ceci10 = ExpenseType.create!(expense_category: "Materia Prima")
+expense_type_ceci6 = ExpenseType.create!(expense_category: "Arriendo",company_id: compañia2_ceci.id)
+expense_type_ceci7 = ExpenseType.create!(expense_category: "Marketing",company_id: compañia2_ceci.id)
+expense_type_ceci8 = ExpenseType.create!(expense_category: "Servicios básicos",company_id: compañia2_ceci.id)
+expense_type_ceci9 = ExpenseType.create!(expense_category: "Personal",company_id: compañia2_ceci.id)
+expense_type_ceci10 = ExpenseType.create!(expense_category: "Materia Prima",company_id: compañia2_ceci.id)
 
 # Creacion de los gastos de Matias empresa 1 (solo 3)
 puts "Creando Gastos de Matias Empresa 1 (3)"
