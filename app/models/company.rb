@@ -16,6 +16,7 @@ class Company < ApplicationRecord
 
   has_many :incomes
   has_many :expenses
+  has_many :expense_types
 
   # validaciones
 
