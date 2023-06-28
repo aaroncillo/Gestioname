@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @company = Company.find(params[:company_id])
     @expense_types = @company.expense_types
-    if @expense.save
+    if @expense_types.save
       redirect_to @expense, notice: "expense was successfully created."
     else
       render :new, status: :unprocessable_entity
