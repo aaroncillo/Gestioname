@@ -35,8 +35,6 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @company = Company.find(params[:company_id])
     @expense.company_id = @company.id
-    @expense.expense_type_id = params[:expense][:expense_type_id] # Asignar el ID del ExpenseType seleccionado
-
     if @expense.save
       redirect_to company_expenses_path, notice: "expense was successfully created."
     else
