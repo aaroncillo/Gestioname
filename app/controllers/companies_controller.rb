@@ -18,6 +18,7 @@ class CompaniesController < ApplicationController
   # POST /restaurants
   def create
     @company = Company.new(company_params)
+    @company.user = current_user
     if @company.save
       redirect_to @company, notice: "company was successfully created."
     else

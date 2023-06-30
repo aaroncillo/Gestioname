@@ -9,6 +9,8 @@ class IncomesController < ApplicationController
   end
     # GET /incomes/new
   def new
+    #/companies/1/incomes/new
+    @company = Company.find(params[:company_id])
     @income = Income.new
   end
     # GET /incomes/1/edit
@@ -16,7 +18,9 @@ class IncomesController < ApplicationController
   end
     # POST /incomes
   def create
+    @company = Company.find(params[:company_id])
     @income = Income.new(income_params)
+    @income.company_id = @company.id
     if @income.save
       redirect_to @income, notice: "income was successfully created."
     else
