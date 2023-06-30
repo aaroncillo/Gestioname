@@ -18,7 +18,7 @@ class ExpensesController < ApplicationController
   # GET /expense/1/edit
   def edit
     @company = Company.find(params[:company_id])
-    @expense.company_id = @company.id
+    @expense = Expense.find(params[:id])
   end
   # POST /expense
   # def create
