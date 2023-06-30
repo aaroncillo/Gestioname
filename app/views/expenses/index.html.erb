@@ -2,7 +2,13 @@
 <p>Find me in app/views/expenses/index.html.erb</p>
 <ul>
   <% @expenses.each do |expense| %>
-    <li><%= expense.item_name %> <%= expense.amount %></li>
+    <div class="d-flex justify-content-between p-2">
+      <li><%= expense.item_name %> <%= expense.amount %></li>
+      <%= link_to "Edit", edit_company_expense_path(@company, expense.id), class:"btn btn-danger" %>
+      <%= link_to expense_path(expense), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
   <% end %>
 </ul>
 <%= link_to "Company", companies_path %>
