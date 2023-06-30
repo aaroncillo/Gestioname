@@ -2,7 +2,9 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
   # GET /expense
   def index
+    @company = Company.find(params[:company_id])
     @expenses = Expense.where(company_id: params[:company_id])
+    @expenses = @company.expenses
   end
   # GET /expense/1
   def show
@@ -46,15 +48,16 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expense/1
   def update
     if @expense.update(expense_params)
-      redirect_to @expense, notice: "expense was successfully updated."
+      redirect_to company_expenses_path, notice: "expense was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
   end
   # DELETE /expense/1
   def destroy
+    @expense = Expense.find(params[:id])
     @expense.destroy
-    redirect_to expense_url, notice: "expense was successfully destroyed.", status: :s
+    redirect_to company_expenses_path(@expense.company_id), notice: "expense was successfully destroyed.", status: :see_other
   end
   private
     # Use callbacks to share common setup or constraints between actions.
