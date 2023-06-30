@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :balances, only: %i[index show]
-  resources :incomes, except: %i[destroy index]
-  resources :expenses, except: %i[destroy index]
+  resources :incomes, except: %i[index new create]
+  resources :expenses, except: %i[index new create]
 
   resources :expense_types, except: %i[destroy index]
 end

@@ -1,27 +1,12 @@
-<%= form_with(model: expense) do |form| %>
-  <% if expense.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+<%= simple_form_for [@company, @expense] do |f| %>
+    <%= f.input :item_name %>
+    <%= f.input :description %>
+    <%= f.input :date, order: [:day, :month, :year], html5:true %>
+    <%= f.input :amount %>
+    <%#= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map{|services| services.expense_category}%>
+    <%= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map { |et| [et.expense_category, et.id] } %>
 
-      <ul>
-        <% expense.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%#= f.association :expense %>
 
-  <div>
-    <%= form.label :item_name, style: "display: block" %>
-    <%= form.text_field :item_name %>
-  </div>
-
-  <div>
-    <%= form.label :expense_id, style: "display: block" %>
-    <%= form.text_field :expense_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+    <%= f.submit %>
 <% end %>
