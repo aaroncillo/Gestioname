@@ -1,5 +1,13 @@
-
-  <%= simple_form_for [@company, @expense_types] do |f| %>
-    <%= f.input :expense_category %>
-    <%= f.submit %>
-  <% end %>
+<%= simple_form_for [@company, @expense_types] do |f| %>
+  <div class="container d-flex justify-content-center ">
+    <div class=" m-2 p-3 border shadow-lg w-50">
+      <form class="form ">
+          <span class="signup mt-3">Company</span>
+            <%= f.input :expense_category, placeholder: 'Categoria' %>
+            <div class="text-center">
+              <%= f.submit class: 'btn btn-primary'%>
+            </div>
+      </form>
+    </div>
+  </div>
+<% end %>

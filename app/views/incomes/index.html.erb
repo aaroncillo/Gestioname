@@ -1,9 +1,13 @@
-<h1>Incomes#index</h1>
-<p>Find me in app/views/incomes/index.html.erb</p>
 <ul>
   <% @incomes.each do |income| %>
-    <li><%= income.item_name %> <%= income.amount %></li>
+    <div class="d-flex justify-content-between p-2">
+      <li><%= income.item_name %> <%= income.amount %> <%= income.date %></li>
+      <%= link_to "Edit", edit_company_income_path(@company, income.id), class:"btn btn-danger" %>
+      <%= link_to income_path(income), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
+    </div>
   <% end %>
 </ul>
 <%= link_to "Company", companies_path %>
-<%= link_to "New Income", new_company_income_path %>
+<%= link_to "New income", new_company_income_path %>

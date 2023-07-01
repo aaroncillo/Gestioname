@@ -11,10 +11,12 @@
   </head>
 
   <body>
-    <%# <%= render "shared/navbar" %>
-    <%# <%= render "shared/flashes" %>
-    <%# <%= yield %>
-    <%= render "shared/dashboard" %>
-    
+    <% unless current_page?(root_path) %>
+      <%= render "shared/dashboard" %>
+      <% else %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+    <%= yield %>
+    <% end %>
   </body>
 </html>
