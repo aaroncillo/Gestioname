@@ -2,12 +2,26 @@
 
 
 <div class="container">
-  <div class="mb-5 tamaños-card">
-    <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
-    <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
-    <%= link_to "Edit company", edit_company_path(@company), class:"btn btn-primary" %>
+  <div class="class row">
+    <div class="col-4 mb-3">
+      <div class="card-category">
+        <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-4 mb-3">
+      <div class="card-category">
+        <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-4 mb-3">
+      <div class="card-category">
+        <h1>Balance</h1>
+      </div>
+    </div>
   </div>
 
+
+    <%= link_to "Edit company", edit_company_path(@company), class:"btn btn-primary" %>
   <div>
     <%= link_to "Back to companies", companies_path, class:"btn btn-primary" %>
     <%= link_to "Delete this company", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirmation: "Are you sure?", class:"btn btn-dangerous" }%>
