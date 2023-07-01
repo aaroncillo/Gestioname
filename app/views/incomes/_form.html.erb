@@ -1,7 +1,16 @@
 <%= simple_form_for [@company, @income] do |f| %>
-    <%= f.input :item_name %>
-    <%= f.input :description %>
-    <%= f.input :date, order: [:day, :month, :year], html5:true %>
-    <%= f.input :amount %>
-    <%= f.submit %>
+  <div class="container d-flex justify-content-center ">
+    <div class=" m-3 p-3 border shadow-lg w-50">
+      <form class="form ">
+          <span class="signup mt-3">Income</span>
+            <%= f.input :item_name %>
+            <%= f.input :description %>
+            <%= f.input :date, order: [:day, :month, :year], html5:true %>
+            <%= f.input :amount %>
+            <div class="text-center">
+              <%= f.submit class: 'btn btn-primary'%>
+            </div>
+      </form>
+    </div>
+  </div>
 <% end %>
