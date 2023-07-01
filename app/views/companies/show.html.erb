@@ -11,7 +11,11 @@
               <i class="fa-solid fa-money-bill"></i>
             </div>
             <h5 class="text-body-tertiary">Total Balance</h5>
-            <h3 class="text-black fw-bold">$$$$</h3>
+            <% if @total_amount < 0 %>
+              <h3 class="text-danger fw-bold"><%= @total_amount %></h3>
+            <% else %>
+              <h3 class="text-success fw-bold"><%= @total_amount %></h3>
+            <% end %>
             <h4>Balances</h4>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
@@ -28,7 +32,7 @@
               <i class="fa-solid fa-chart-simple"></i>
             </div>
             <h5 class="text-body-tertiary">Total Expense</h5>
-            <h3 class="text-black fw-bold">$$$$</h3>
+            <h3 class="text-black fw-bold"><%= @expense_amount %></h3>
             <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
@@ -45,28 +49,88 @@
               <i class="fa-solid fa-chart-line"></i>
             </div>
             <h5 class="text-body-tertiary">Total Income</h5>
-            <h3 class="text-black fw-bold">$$$$</h3>
+            <h3 class="text-black fw-bold"><%= @incomes_amount %></h3>
             <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
-            <h2 class="">graph</h2>
+            <h2>graph</h2>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <h2 class="fw-bold">Recent</h2>
+  <% total_amount = 0 %>
+  <% incomes_amount = 0 %>
+  <% expense_amount = 0 %>
 
-  <%# EN ESTE DIV DEBERIA IR TODO EL CONTENIDO QUE IRÁ CAMBIANDO ??%>
+
+  <h2 class="fw-bold">Graphs</h2>
+
+  <%# EN ESTE DIV DEBERIA IR GRAFICOS QUE IRÁ CAMBIANDO ??%>
   <div class="card-contenido">
-
     <%= pie_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true %>
     <%#= column_chart Expense.joins(:company).where(company_id: params[:id]).sum(:amount) %>
     <%#= bar_chart Expense.joins(:company).where(companies: {id: params[:id]}).sum(:amount) %>
+
   </div>
 
+  <%# EN ESTE DIV DEBERIA IR TODO EL CONTENIDO QUE IRÁ CAMBIANDO ??%>
+  <h2 class="fw-bold">Recent</h2>
+  <div class="">
 
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item_name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Date</th>
+        <th scope="col">Details</th>
+      </tr>
+    </thead>
+      <% @registers.sort_by(&:date).reverse.each do |register| %>
+        <tbody>
+            <% if register.respond_to?(:expense_type_id) %>
+              <tr>
+                <td class="bg-danger">Expense</td>
+                <td class="bg-danger"><%= register.item_name %></td>
+                <td class="bg-danger">$ <%= register.amount %></td>
+                <td class="bg-danger"><%= register.date %></td>
+                <td class="bg-danger"><%= link_to '', expense_path(register), class: 'fa-sharp fa-solid fa-circle-info'%></td>
+              </tr>
+              <% expense_amount += register.amount %>
+            <% else %>
+              <tr class="bg-success">
+                <td class="bg-success">Income</td>
+                <td class="bg-success"><%= register.item_name %></td>
+                <td class="bg-success">$ <%= register.amount %></td>
+                <td class="bg-success"><%= register.date %></td>
+                <td class="bg-success"><%= link_to '', income_path(register), class: 'fa-sharp fa-solid fa-circle-info' %></td>
+              </tr>
+              <% incomes_amount += register.amount %>
+            <% end %>
+          <% total_amount += register.amount %>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+
+  <% if @registers.present? %>
+    <tbody>
+      <tr>
+        <td colspan="5" class="text-center bg-light">
+          <strong>Total Amount:</strong> $ <%= total_amount %>
+        </td>
+        <td colspan="5" class="text-center bg-light">
+          <strong>Total Expenses:</strong> $ <%= expense_amount %>
+        </td>
+        <td colspan="5" class="text-center bg-light">
+          <strong>Total Incomes:</strong> $ <%= incomes_amount %>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
 
   <div>
     <%= link_to "Back to companies", companies_path, class:"btn btn-primary" %>
