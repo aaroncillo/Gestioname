@@ -2,7 +2,9 @@ class IncomesController < ApplicationController
   before_action :set_income, only: %i[ show edit update destroy ]
     # GET /incomes
   def index
+    @company = Company.find(params[:company_id])
     @incomes = Income.where(company_id: params[:company_id])
+    @incomes = @company.incomes
   end
     # GET /incomes/1
   def show
@@ -15,6 +17,8 @@ class IncomesController < ApplicationController
   end
     # GET /incomes/1/edit
   def edit
+    @company = Company.find(params[:company_id])
+    @income = Income.find(params[:id])
   end
     # POST /incomes
   def create
@@ -22,7 +26,7 @@ class IncomesController < ApplicationController
     @income = Income.new(income_params)
     @income.company_id = @company.id
     if @income.save
-      redirect_to @income, notice: "income was successfully created."
+      redirect_to company_incomes_path, notice: "income was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,8 +43,9 @@ class IncomesController < ApplicationController
   # DELETE /incomes/1
 
   def destroy
+    @income = Income.find(params[:id])
     @income.destroy
-    redirect_to incomes_url, notice: "income was successfully destroyed.", status: :see_other
+    redirect_to company_incomes_path(@income.company_id), notice: "income was successfully destroyed.", status: :see_other
   end
   private
       # Use callbacks to share common setup or constraints between actions.
