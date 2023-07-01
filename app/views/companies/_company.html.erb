@@ -1,11 +1,13 @@
-<div id="<%= dom_id company %>">
-  <p>
-    <strong>Name:</strong>
-    <%= company.name_company %>
-  </p>
+<div class="container w-100" id="<%= dom_id company %>">
 
-  <p>
-    <strong>Description:</strong>
-    <%= company.description %>
-  </p>
+  <h1 class="fw-bold"><%= company.name_company %></h1>
+  <div class="d-flex justify-content-between">
+    <%= link_to "Edit company", edit_company_path(@company), class:"btn btn-primary" %>
+    <%= link_to "Delete this company", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirmation: "Are you sure?", class:"btn btn-dangerous" }%>
+  </div>
+  <hr style="border: 2px solid black;">
+
+  <div class="text-center">
+    <h3><%= company.description %></h2>
+  </div>
 </div>

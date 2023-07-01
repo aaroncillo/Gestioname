@@ -5,25 +5,68 @@
   <div class="class row">
     <div class="col-4 mb-3">
       <div class="card-category">
-        <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
+        <div class="row">
+          <div class="col-7">
+            <div class="icono-chico mb-3">
+              <i class="fa-solid fa-money-bill"></i>
+            </div>
+            <h5 class="text-body-tertiary">Total Balance</h5>
+            <h3 class="text-black fw-bold">$$$$</h3>
+            <h4>Balances</h4>
+          </div>
+          <div class="col-5 d-flex align-items-center justify-content-center">
+            <h2>graph</h2>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-4 mb-3">
       <div class="card-category">
-        <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
+        <div class="row">
+          <div class="col-7">
+            <div class="icono-chico mb-3">
+              <i class="fa-solid fa-chart-simple"></i>
+            </div>
+            <h5 class="text-body-tertiary">Total Expense</h5>
+            <%= pie_chart Expense.group(:amount).count %>
+            <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
+          </div>
+          <div class="col-5 d-flex align-items-center justify-content-center">
+            <h2>graph</h2>
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-4 mb-3">
       <div class="card-category">
-        <h1>Balance</h1>
+        <div class="row">
+          <div class="col-7">
+            <div class="icono-chico mb-3">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h5 class="text-body-tertiary">Total Income</h5>
+            <h3 class="text-black fw-bold">$$$$</h3>
+            <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
+          </div>
+          <div class="col-5 d-flex align-items-center justify-content-center">
+            <h2 class="">graph</h2>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <h2 class="fw-bold">Recent</h2>
 
-    <%= link_to "Edit company", edit_company_path(@company), class:"btn btn-primary" %>
+  <%# EN ESTE DIV DEBERIA IR TODO EL CONTENIDO QUE IRÁ CAMBIANDO ??%>
+  <div class="card-contenido">
+
+
+  </div>
+
+
+
   <div>
     <%= link_to "Back to companies", companies_path, class:"btn btn-primary" %>
-    <%= link_to "Delete this company", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirmation: "Are you sure?", class:"btn btn-dangerous" }%>
   </div>
 </div>
