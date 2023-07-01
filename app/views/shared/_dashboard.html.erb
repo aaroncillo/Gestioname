@@ -49,20 +49,20 @@
               Companies
             </button>
           </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body">
             <% if user_signed_in? %>
-              <% @companies.each do |company| %>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                      <i class="fas  fa-fw fa-tachometer-alt"></i>
-                      <span class="text-danger"> <%= company.name_company %></span>
-                    </a>
-                </li>
-              <% end %>
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                  <% @companies.each do |company| %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                          <i class="fas  fa-fw fa-tachometer-alt"></i>
+                          <span class="text-danger"> <%= company.name_company %></span>
+                        </a>
+                    </li>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
-            </div>
-          </div>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
