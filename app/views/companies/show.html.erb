@@ -97,7 +97,7 @@
                 <td class="bg-danger"><%= register.item_name %></td>
                 <td class="bg-danger">$ <%= register.amount %></td>
                 <td class="bg-danger"><%= register.date %></td>
-                <td class="bg-danger"><%= link_to '', expense_path(register), class: 'fa-sharp fa-solid fa-circle-info'%></td>
+                <td class="bg-danger"><%= link_to '', polymorphic_path(register), class: 'fa-sharp fa-solid fa-circle-info'%></td>
               </tr>
               <% expense_amount += register.amount %>
             <% else %>
@@ -106,7 +106,7 @@
                 <td class="bg-success"><%= register.item_name %></td>
                 <td class="bg-success">$ <%= register.amount %></td>
                 <td class="bg-success"><%= register.date %></td>
-                <td class="bg-success"><%= link_to '', income_path(register), class: 'fa-sharp fa-solid fa-circle-info' %></td>
+                <td class="bg-success"><%= link_to '', polymorphic_path(register), class: 'fa-sharp fa-solid fa-circle-info' %></td>
               </tr>
               <% incomes_amount += register.amount %>
             <% end %>

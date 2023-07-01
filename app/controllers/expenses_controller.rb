@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
   end
   # GET /expense/1
   def show
+    @expense = Expense.find(params[:id])
   end
   # GET /expense/new
   def new
