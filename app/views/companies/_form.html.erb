@@ -1,7 +1,14 @@
-
 <%= simple_form_for [@company] do |f| %>
-    <%= f.input :name_company %>
-    <%= f.input :description %>
-
-    <%= f.submit %>
+<div class="container d-flex justify-content-center ">
+  <div class=" m-2 p-3 border shadow-lg w-50">
+    <form class="form ">
+        <span class="signup mt-3">Company</span>
+          <%= f.input :name_company, placeholder: 'Nombre de la compañía'  %>
+          <%= f.input :description, placeholder: 'Descripcion' %>
+          <div class="text-center">
+            <%= f.submit class: 'btn btn-primary'%>
+          </div>
+    </form>
+  </div>
+</div>
 <% end %>
