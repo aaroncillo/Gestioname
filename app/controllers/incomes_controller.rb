@@ -2,9 +2,10 @@ class IncomesController < ApplicationController
   before_action :set_income, only: %i[ show edit update destroy ]
     # GET /incomes
   def index
+
     @company = Company.find(params[:company_id])
     @incomes = Income.where(company_id: params[:company_id])
-    @incomes = @company.incomes
+    @incomes = @company.incomes.order(date: :desc)
   end
     # GET /incomes/1
   def show
