@@ -1,7 +1,10 @@
-
 <%= simple_form_for [@company] do |f| %>
-    <%= f.input :name_company %>
-    <%= f.input :description %>
-
-    <%= f.submit %>
+<div class="container m-5 p-3 border shadow">
+  <form class="form ">
+      <span class="signup">New </span>
+        <%= f.input :name_company, placeholder: 'Nombre de la compañía'  %>
+        <%= f.input :description, placeholder: 'Descripcion' %>
+      <%= f.submit %>
+  </form>
+</div>
 <% end %>

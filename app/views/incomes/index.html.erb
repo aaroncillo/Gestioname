@@ -1,7 +1,7 @@
 <ul>
   <% @incomes.each do |income| %>
     <div class="d-flex justify-content-between p-2">
-      <li><%= income.item_name %> <%= income.amount %></li>
+      <li><%= income.item_name %> <%= income.amount %> <%= income.date %></li>
       <%= link_to "Edit", edit_company_income_path(@company, income.id), class:"btn btn-danger" %>
       <%= link_to income_path(income), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
         <i class="fa-solid fa-trash"></i>
