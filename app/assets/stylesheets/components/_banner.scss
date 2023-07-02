@@ -1,7 +1,9 @@
 .banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset_url(istockphoto-623208546-1024x1024) ;
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   padding: 150px 0;
+  height: 600px;
 }
 
 .banner h1 {
