@@ -8,6 +8,7 @@ class ExpensesController < ApplicationController
   end
   # GET /expense/1
   def show
+    @companies = Company.where(user_id: current_user.id)
   end
   # GET /expense/new
   def new
