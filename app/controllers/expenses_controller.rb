@@ -9,6 +9,7 @@ class ExpensesController < ApplicationController
   # GET /expense/1
   def show
     @expense = Expense.find(params[:id])
+    @companies = Company.where(user_id: current_user.id)
   end
   # GET /expense/new
   def new
