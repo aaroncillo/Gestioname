@@ -1,5 +1,7 @@
 class ExpenseTypesController < ApplicationController
-  before_action :set_expense_type, only: [:edit, :update, :destroy]
+  before_action :set_expense_type, only: %i[edit update destroy]
+  before_action :set_filter_company, only: %i[new create destroy]
+  before_action :set_company_user, only: %i[ show index edit new]
 
   # GET /expense_types
   def index
@@ -8,7 +10,6 @@ class ExpenseTypesController < ApplicationController
 
   # GET /expense_types/new
   def new
-    @company = Company.find(params[:company_id])
     @expense_types = ExpenseType.new
   end
 
@@ -18,7 +19,6 @@ class ExpenseTypesController < ApplicationController
 
   # POST /expense_types
   def create
-    @company = Company.find(params[:company_id])
     @expense_types = ExpenseType.new(expense_type_params)
     @expense_types.company = @company
     if @expense_types.save
@@ -51,5 +51,13 @@ class ExpenseTypesController < ApplicationController
 
   def expense_type_params
     params.require(:expense_type).permit(:expense_category)
+  end
+
+  def set_filter_company
+    @company = Company.find(params[:company_id])
+  end
+  
+  def set_company_user
+    @companies = Company.where(user_id: current_user.id)
   end
 end

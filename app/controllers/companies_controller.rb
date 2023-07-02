@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: %i[ show edit update destroy ]
-  before_action :set_company_user, only: %i[ show index ]
+  before_action :set_company_user, only: %i[ show index edit new]
   # GET /restaurants
   def index
   end
