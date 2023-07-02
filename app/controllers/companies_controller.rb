@@ -1,12 +1,11 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: %i[ show edit update destroy ]
+  before_action :set_company_user, only: %i[ show index ]
   # GET /restaurants
   def index
-    @companies = Company.where(user_id: current_user.id)
   end
   # GET /restaurants/1
   def show
-    @companies = Company.all
     incomes = Income.joins(:company).where(company_id: params[:id])
     expenses = Expense.joins(:company).where(company_id: params[:id])
     @registers = incomes + expenses
@@ -66,5 +65,9 @@ class CompaniesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def company_params
       params.require(:company).permit(:name_company, :description, :user_id)
+    end
+
+    def set_company_user
+      @companies = Company.where(user_id: current_user.id)
     end
 end
