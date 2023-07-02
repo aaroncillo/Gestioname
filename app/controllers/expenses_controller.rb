@@ -1,8 +1,9 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
+  before_action :set_company_user, only: %i[ show index edit new]
+  before_action :set_company, only: %i[ index edit new create]
   # GET /expense
   def index
-    @company = Company.find(params[:company_id])
     @expenses = Expense.where(company_id: params[:company_id])
     @expenses = @company.expenses
   end
@@ -11,32 +12,17 @@ class ExpensesController < ApplicationController
   end
   # GET /expense/new
   def new
-    @company = Company.find(params[:company_id])
     @company_categories = ExpenseType.where(company_id: @company.id).map{|services| services.expense_category}
     @expense = Expense.new
   end
   # GET /expense/1/edit
   def edit
-    @company = Company.find(params[:company_id])
     @expense = Expense.find(params[:id])
   end
-  # POST /expense
-  # def create
-  #   @expense = Expense.new(expense_params)
-  #   @company = Company.find(params[:company_id])
-  #   @expense.company_id = @company.id
-  #   if @expense.save
-  #     redirect_to company_expenses_path, notice: "expense was successfully created."
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
-
 
   #CHAT GPT
   def create
     @expense = Expense.new(expense_params)
-    @company = Company.find(params[:company_id])
     @expense.company_id = @company.id
     if @expense.save
       redirect_to company_expenses_path, notice: "expense was successfully created."
@@ -67,5 +53,13 @@ class ExpensesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def expense_params
       params.require(:expense).permit(:item_name, :date, :description, :amount, :expense_type_id)
+    end
+
+    def set_company_user
+      @companies = Company.where(user_id: current_user.id)
+    end
+
+    def set_company
+      @company = Company.find(params[:company_id])
     end
 end

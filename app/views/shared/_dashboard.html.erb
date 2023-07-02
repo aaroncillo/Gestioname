@@ -50,14 +50,11 @@
             </button>
           </p>
           <div class="collapse" id="collapseExample">
-            <div class="card card-body">
+            <div class="card card-body bg-primary">
             <% if user_signed_in? %>
               <% @companies.each do |company| %>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">
-                      <i class="fas  fa-fw fa-tachometer-alt"></i>
-                      <span class="text-danger"> <%= company.name_company %></span>
-                    </a>
+                    <%= link_to company.name_company, company_path(company), class: "text-white" %>
                 </li>
               <% end %>
             <% end %>

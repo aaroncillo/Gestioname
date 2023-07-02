@@ -1,9 +1,9 @@
 class IncomesController < ApplicationController
   before_action :set_income, only: %i[ show edit update destroy ]
+  before_action :set_company_user, only: %i[ show index edit new]
+  before_action :set_company, only: %i[ index edit new create]
     # GET /incomes
   def index
-
-    @company = Company.find(params[:company_id])
     @incomes = Income.where(company_id: params[:company_id])
     @incomes = @company.incomes.order(date: :desc)
   end
@@ -13,17 +13,14 @@ class IncomesController < ApplicationController
     # GET /incomes/new
   def new
     #/companies/1/incomes/new
-    @company = Company.find(params[:company_id])
     @income = Income.new
   end
     # GET /incomes/1/edit
   def edit
-    @company = Company.find(params[:company_id])
     @income = Income.find(params[:id])
   end
     # POST /incomes
   def create
-    @company = Company.find(params[:company_id])
     @income = Income.new(income_params)
     @income.company_id = @company.id
     if @income.save
@@ -56,5 +53,13 @@ class IncomesController < ApplicationController
     # Only allow a list of trusted parameters through.
   def income_params
     params.require(:income).permit(:item_name,:date, :description,:amount, :company_id)
+  end
+
+  def set_company_user
+    @companies = Company.where(user_id: current_user.id)
+  end
+
+  def set_company
+    @company = Company.find(params[:company_id])
   end
 end
