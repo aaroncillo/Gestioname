@@ -6,6 +6,7 @@ class CompaniesController < ApplicationController
   end
   # GET /restaurants/1
   def show
+    @companies = Company.where(user_id: current_user.id)
     incomes = Income.joins(:company).where(company_id: params[:id])
     expenses = Expense.joins(:company).where(company_id: params[:id])
     @registers = incomes + expenses
