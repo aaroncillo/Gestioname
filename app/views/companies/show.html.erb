@@ -33,7 +33,7 @@
             </div>
             <h5 class="text-body-tertiary">Total Expense</h5>
             <h3 class="text-black fw-bold"><%= @expense_amount %></h3>
-            <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
+            <%= link_to "Add Expense", company_expenses_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
             <h2>graph</h2>
@@ -50,7 +50,7 @@
             </div>
             <h5 class="text-body-tertiary">Total Income</h5>
             <h3 class="text-black fw-bold"><%= @incomes_amount %></h3>
-            <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
+            <%= link_to "Add Income", company_incomes_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
             <h2>graph</h2>
@@ -79,60 +79,57 @@
   <h2 class="fw-bold">Recent</h2>
   <div class="">
 
-    <table class="table">
-    <thead>
+<div class="">
+  <table class="table table-striped" id="example">
+    <thead class="thead-dark">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Item_name</th>
+        <th scope="col" class="filterable">Item Name</th>
         <th scope="col">Amount</th>
         <th scope="col">Date</th>
         <th scope="col">Details</th>
       </tr>
     </thead>
-      <% @registers.sort_by(&:date).reverse.each do |register| %>
-        <tbody>
-            <% if register.respond_to?(:expense_type_id) %>
-              <tr>
-                <td class="bg-danger">Expense</td>
-                <td class="bg-danger"><%= register.item_name %></td>
-                <td class="bg-danger">$ <%= register.amount %></td>
-                <td class="bg-danger"><%= register.date %></td>
-                <td class="bg-danger"><%= link_to '', expense_path(register), class: 'fa-sharp fa-solid fa-circle-info'%></td>
-              </tr>
-              <% expense_amount += register.amount %>
-            <% else %>
-              <tr class="bg-success">
-                <td class="bg-success">Income</td>
-                <td class="bg-success"><%= register.item_name %></td>
-                <td class="bg-success">$ <%= register.amount %></td>
-                <td class="bg-success"><%= register.date %></td>
-                <td class="bg-success"><%= link_to '', income_path(register), class: 'fa-sharp fa-solid fa-circle-info' %></td>
-              </tr>
-              <% incomes_amount += register.amount %>
-            <% end %>
-          <% total_amount += register.amount %>
-        </tbody>
-      <% end %>
-    </table>
-  </div>
-
-  <% if @registers.present? %>
     <tbody>
-      <tr>
-        <td colspan="5" class="text-center bg-light">
-          <strong>Total Amount:</strong> $ <%= total_amount %>
-        </td>
-        <td colspan="5" class="text-center bg-light">
-          <strong>Total Expenses:</strong> $ <%= expense_amount %>
-        </td>
-        <td colspan="5" class="text-center bg-light">
-          <strong>Total Incomes:</strong> $ <%= incomes_amount %>
-        </td>
-      </tr>
+      <% @registers.sort_by(&:date).reverse.each do |register| %>
+        <tr>
+          <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
+          <td><%= register.amount %></td>
+          <td><%= register.date %></td>
+          <td><%= link_to '', expense_path(register), class: 'fa-sharp fa-solid fa-circle-info'%></td>
+        </tr>
+      <% end %>
     </tbody>
-  <% end %>
-
-  <div>
-    <%= link_to "Back to companies", companies_path, class:"btn btn-primary" %>
-  </div>
+  </table>
 </div>
+
+<div>
+  <%= link_to "Back to companies", companies_path, class:"btn btn-primary" %>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    var table = $('#example').DataTable({
+      "order": [[0, "asc"]], // Ordenar por la primera columna de forma ascendente
+      "columnDefs": [
+        {
+          "targets": 'filterable', // Aplicar filtrado a columnas con la clase "filterable"
+          "searchable": true,
+          "orderable": true
+        }
+      ],
+      "pagingType": "full_numbers",
+      "pageLength": 5, // Mostrar solo 5 filas por página
+      "lengthMenu": [5, 10, 25, 50] // Opciones de cantidad de filas a mostrar en el menú desplegable "Show entries"
+    });
+
+    // Agregar evento al botón de búsqueda para actualizar la tabla después de borrar el término de búsqueda
+    $("#searchBtn").on("click", function() {
+      table.draw(); // Actualizar la tabla después de borrar el término de búsqueda
+    });
+  });
+</script>
