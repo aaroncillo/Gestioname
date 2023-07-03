@@ -3,7 +3,7 @@ $(document).ready(function() {
 
     buttons: [
       'copy', 'excel', 'pdf'
-      ]
+      ],
 
     "order": [[0, "asc"]], // Ordenar por la primera columna de forma ascendente
     "columnDefs": [
