@@ -1,10 +1,28 @@
-<ul>
-  <% @companies.each do |company| %>
-    <li>
-    <%= company.name_company %>
-    </li>
-    <%= link_to "company", company_path(company) %>
-  <% end %>
-</ul>
 
 <%= link_to "Create new company", new_company_path %>
+
+<div class="container">
+  <div class="class row">
+    <% @companies.each do |company| %>
+      <div class="col-6 mb-3">
+        <div class="card-category">
+          <div class="row">
+            <div class="col-7">
+              <div class="icono-chico mb-3">
+                <i class="fa-solid fa-money-bill"></i>
+              </div>
+              <h5 class="text-body-tertiary"><%= link_to company.name_company,company_path(company) %></h5>
+                <h3 class="text-danger fw-bold"></h3>
+
+                <h3 class="text-success fw-bold"></h3>
+              <h4>Balances</h4>
+            </div>
+            <div class="col-5 d-flex align-items-center justify-content-center">
+              <h2>graph</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
