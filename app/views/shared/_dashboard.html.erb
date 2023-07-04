@@ -54,7 +54,8 @@
             <% if user_signed_in? %>
               <% @companies.each do |company| %>
                 <li class="nav-item">
-                    <%= link_to company.name_company, company_path(company), class: "text-white" %>
+                    <%= link_to company.name_company, company_path(company), class: "text-white " %>
+
                 </li>
               <% end %>
             <% end %>
