@@ -33,10 +33,13 @@
         <% else %>
           <li class="nav-item">
             <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class:"btn btn-outline-success"%>
+            <%= link_to "Login", new_user_session_path, class:"btn btn-outline-success", data: { turbo_frame: "login_modal" }%>
           </li>
         <% end %>
       </ul>
+
+
+
     </div>
   </div>
 </div>

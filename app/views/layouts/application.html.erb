@@ -42,6 +42,7 @@
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
       <%= yield %>
+      <%= turbo_frame_tag "login_modal", target: "_top" %>
     <% end %>
   </body>
 </html>
