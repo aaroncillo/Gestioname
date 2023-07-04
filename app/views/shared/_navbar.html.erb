@@ -33,7 +33,7 @@
         <% else %>
           <li class="nav-item">
             <li class="nav-item">
-            <%= link_to "Log in", new_user_session_path, class:"btn btn-outline-success", data: { turbo_frame: "login_modal" }%>
+            <%= link_to "Log in", companies_path, class:"btn btn-outline-success", data: { turbo_frame: "login_modal" }%>
             <%= link_to "Sign up", new_user_registration_path, class:"btn btn-outline-success", data: { turbo_frame: "signup_modal" }%>
           </li>
         <% end %>
