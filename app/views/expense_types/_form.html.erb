@@ -5,7 +5,8 @@
           <span class="signup mt-3">Company</span>
             <%= f.input :expense_category, placeholder: 'Categoria' %>
             <div class="text-center">
-              <%= f.submit class: 'btn btn-primary'%>
+              <%= link_to "Back", company_expenses_path, class:"btn btn-primary" %>
+              <%= f.submit class: 'btn btn-success'%>
             </div>
       </form>
     </div>
