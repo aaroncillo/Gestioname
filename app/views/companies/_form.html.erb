@@ -6,7 +6,8 @@
           <%= f.input :name_company, placeholder: 'Nombre de la compañía'  %>
           <%= f.input :description, placeholder: 'Descripcion' %>
           <div class="text-center">
-            <%= f.submit class: 'btn btn-primary'%>
+            <%= link_to "Back To Companies", companies_path, class:"btn btn-primary mb-3 mt-3" %>
+            <%= f.submit class: 'btn btn-success'%>
           </div>
     </form>
   </div>
