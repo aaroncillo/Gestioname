@@ -14,9 +14,9 @@ class Company < ApplicationRecord
 
   # has manys
 
-  has_many :incomes
-  has_many :expenses
-  has_many :expense_types
+  has_many :incomes, dependent: :destroy
+  has_many :expenses, dependent: :destroy
+  has_many :expense_types, dependent: :destroy
 
   # validaciones
 
