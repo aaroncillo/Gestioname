@@ -14,9 +14,9 @@
             </div>
             <h5 class="text-body-tertiary">Total Balance</h5>
             <% if @total_amount < 0 %>
-              <h3 class="text-danger fw-bold"><%= @total_amount %></h3>
+              <h3 class="text-danger fw-bold"><%= number_with_delimiter(@total_amount.to_i, delimiter: '.', separator: ',')  %></h3>
             <% else %>
-              <h3 class="text-success fw-bold"><%= @total_amount %></h3>
+              <h3 class="text-success fw-bold"><%= number_with_delimiter(@total_amount.to_i, delimiter: '.', separator: ',')  %></h3>
             <% end %>
             <h4>Balances</h4>
           </div>
@@ -34,7 +34,7 @@
               <i class="fa-solid fa-chart-simple"></i>
             </div>
             <h5 class="text-body-tertiary">Total Expense</h5>
-            <h3 class="text-black fw-bold"><%= @expense_amount %></h3>
+            <h3 class="text-black fw-bold"><%= number_with_delimiter(@expense_amount.to_i, delimiter: '.', separator: ',')  %></h3>
             <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
@@ -51,7 +51,7 @@
               <i class="fa-solid fa-chart-line"></i>
             </div>
             <h5 class="text-body-tertiary">Total Income</h5>
-            <h3 class="text-black fw-bold"><%= @incomes_amount %></h3>
+            <h3 class="text-black fw-bold"><%= number_with_delimiter(@incomes_amount.to_i, delimiter: '.', separator: ',')  %></h3>
             <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
