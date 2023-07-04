@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import LoginModalController from "./login_modal_controller"
 application.register("login-modal", LoginModalController)
+
+import SignupModalController from "./signup_modal_controller"
+application.register("signup-modal", SignupModalController)
