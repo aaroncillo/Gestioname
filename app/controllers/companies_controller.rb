@@ -5,6 +5,26 @@ class CompaniesController < ApplicationController
   def index
   end
   # GET /restaurants/1
+  def import
+    file = params[:file] # Obtiene el archivo Excel enviado desde el formulario
+
+    if file.present? && file.respond_to?(:path)
+      data = Roo::Spreadsheet.open(file.path) # Abre el archivo Excel utilizando la gema "roo"
+
+      # Procesa los datos del archivo Excel según tus necesidades
+      # Por ejemplo, puedes iterar sobre las filas y guardar los datos en la base de datos
+      data.each_row_streaming do |row|
+        # Lógica de procesamiento de datos
+      end
+
+      flash[:notice] = 'El archivo Excel se ha importado correctamente.'
+    else
+      flash[:alert] = 'Debe seleccionar un archivo Excel para importar.'
+    end
+
+    redirect_to company_path(@company)
+  end
+  
   def show
     incomes = Income.joins(:company).where(company_id: params[:id])
     expenses = Expense.joins(:company).where(company_id: params[:id])
