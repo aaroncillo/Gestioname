@@ -21,7 +21,6 @@
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
             <h2>
-
             </h2>
           </div>
         </div>
@@ -40,7 +39,7 @@
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
             <div id="chart">
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -57,8 +56,8 @@
             <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
-            <div id="chart-2">
-              </div>
+            <div id="chart2">
+            </div>
           </div>
         </div>
       </div>
@@ -103,7 +102,7 @@
   </div>
 
   <%# EN ESTE DIV DEBERIA IR TODO EL CONTENIDO QUE IRÁ CAMBIANDO ??%>
-  <%= link_to 'Importar Excel', import_company_path(@company), class: 'btn btn-primary' %>
+  <%# <%= link_to 'Importar Excel', import_company_path(@company), class: 'btn btn-primary' %> %>
 
   <h2 class="fw-bold mt-3">Recent</h2>
   <div class="data-table">
@@ -130,6 +129,8 @@
   </div>
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
 <script>
   $(document).ready(function() {
   var table = $('#example').DataTable({
@@ -172,41 +173,32 @@
   });
 });
 
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
-  <script>
-  let expense_amount = <%= @porcentaje_expense %>
+let expense_amount = <%= @porcentaje_expense %>
   var options = {
   chart: {
       height: 180,
       type: 'radialBar',
   },
   series: [expense_amount],
-  labels: ['Progress'],
+  labels: ['Expense'],
 }
 
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 
 chart.render();
 
-</script>
-
-<script>
-  let incomes_amount = <%= @porcentaje_incomes %>
+let incomes_amount = <%= @porcentaje_incomes %>
     var options = {
     chart: {
         height: 180,
         type: 'radialBar',
     },
     series: [incomes_amount],
-    labels: ['Progress'],
+    labels: ['Income'],
   }
-  var chart = new ApexCharts(document.querySelector("#chart-2"), options);
+  var chart = new ApexCharts(document.querySelector("#chart2"), options);
   chart.render();
 </script>
-
-
 
 
 <div class="mt-3">
