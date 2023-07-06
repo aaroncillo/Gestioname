@@ -28,6 +28,19 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-user{
+  background-size: cover;
+  background-position: center;
+  height: 620px;
+  display: flex;
+  color: rgb(113, 113, 113);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
 .icono-chico{
   width: 50px;
   height: 50px;
