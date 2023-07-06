@@ -24,7 +24,7 @@ class CompaniesController < ApplicationController
 
     redirect_to company_path(@company)
   end
-  
+
   def show
     incomes = Income.joins(:company).where(company_id: params[:id])
     expenses = Expense.joins(:company).where(company_id: params[:id])
@@ -43,8 +43,12 @@ class CompaniesController < ApplicationController
     end
 
     @total_amount = @incomes_amount - @expense_amount
-    @porcentaje_incomes = ((@incomes_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
-    @porcentaje_expense = ((@expense_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
+    if @incomes_amount == 0
+
+    else
+      @porcentaje_incomes = ((@incomes_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
+      @porcentaje_expense = ((@expense_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
+    end
   end
   # GET /restaurants/new
   def new
