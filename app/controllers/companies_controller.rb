@@ -43,9 +43,7 @@ class CompaniesController < ApplicationController
     end
 
     @total_amount = @incomes_amount - @expense_amount
-    if @incomes_amount == 0
-
-    else
+    unless @incomes_amount.zero?
       @porcentaje_incomes = ((@incomes_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
       @porcentaje_expense = ((@expense_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
     end

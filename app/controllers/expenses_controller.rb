@@ -1,6 +1,6 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[ show edit update destroy ]
-  before_action :set_company_user, only: %i[ show index edit new]
+  before_action :set_company_user, only: %i[ show index edit new create]
   before_action :set_company, only: %i[ index edit new create]
   # GET /expense
   def index
