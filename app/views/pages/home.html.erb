@@ -1,52 +1,123 @@
-
-<div class="banner">
-    <div class="container mt-5">
-    <p>TRACK EXPENSES AND INCOMES IN A SIMPLE WAY</p>
-    <h1> Your finances easy to manage</h1>
-    <p>Gestioname is perfect for  your small bussiness.</p>
-      <div class="text-center pl-5">
-        <%= link_to "START YOUR FREE TRIAL", new_user_registration_path, class:"btn btn-info btn-lg", data: { turbo_frame: "signup_modal" } %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="banercito-the-rock">
+      <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1688692928/TheRock_gcajg5.png" alt="flor">
       </div>
     </div>
+    <div class="col-md-6 justify-center">
+      <div class="banner">
+        <h1>Rock Your Finances with GESTIONAME!</h1>
+        <h3>Simplify the Art of Financial Management</h3>
+        <%# <h4>TRACK YOUR EXPENSES AND INCOMES OF YOUR SMALL BUSINESS</h4> %>
+      </div>
+    <div>
+  </div>
 </div>
+
+<div class="banner2 d-flex justify-content-center">
+  <div class="why-choose-text">
+    <h1>Why choose GESTIONAME?</h1>
+  <div class="text-center p-3 ml-5">
+    <%= link_to "FREE TRIAL", new_user_registration_path, class:"btn btn-success btn-lg", data: { turbo_frame:
+    "signup_modal" } %>
+  </div>
+    </div>
+    <div class="card-category-banner">
+      <h2>Make your small business grow</h2>
+      <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1688687655/flor2_m2cjl4.png" alt="flor">
+    </div>
+
+    <div class="card-category-banner">
+      <h2>Make it easy</h2>
+      <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1688698595/easy_veb8hr.png" alt="circle">
+    </div>
+
+    <div class="card-category-banner">
+      <h2>Track incomes & expenses</h2>
+      <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1688698830/track_incomes_eqqxbz.png" alt="incomes">
+    </div>
+</div>
+
+<div class="banner-how-it-works">
   <div class="container">
-    <div class="row">
-      <div class="col-md-8 mt-5">
-      <div class="card-category-home mb-5">
-      <h1>Visualise your tracks in graphics</h1>
-      <p><a class="btn btn-info btn-lg" href="#">View details »</a></p>
-</div>
+    <div class="margin-right">
+     <i class="fa-solid fa-chart-simple fa-lg" style="color: #0b0c0e; margin-left: 413px;"></i>
     </div>
-    <div class="col-md-4 mt-5" >
-    <form class="form">
-    <p class="title">Sign Up </p>
-    <p class="message">Sign up now and get full access to our app. </p>
-        <div class="flex">
-        <label>
-            <input required="" placeholder="" type="text" class="input">
-            <span>Firstname</span>
-        </label>
-
-        <label>
-            <input required="" placeholder="" type="text" class="input">
-            <span>Lastname</span>
-        </label>
+      <h1>How it works</h1>
+      <p>Empower Your Business Growth</p>
+    <div class="text-left" style="margin-left: 152px">
+      <%= link_to "TRY IT NOW", new_user_registration_path, class:"btn btn-success btn-lg", data: { turbo_frame: "signup_modal" }%>
     </div>
-    <label>
-        <input required="" placeholder="" type="email" class="input">
-        <span>Email</span>
-    </label>
-    <label>
-        <input required="" placeholder="" type="password" class="input">
-        <span>Password</span>
-    </label>
-    <label>
-        <input required="" placeholder="" type="password" class="input">
-        <span>Confirm password</span>
-    </label>
-      <button class="submit">Submit</button>
-    <p class="signin">Already have an acount ? <a href="#">Sign in</a> </p>
-
-  </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%# <div class="container"> %>
+  <%# <div class="d-flex row"> %>
+    <%# <div class="col-7"> %>
+      <%# <div style="background-video: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))"> %>
+        <%# <video playinline preload="auto" width="100%" height="100%" muted controls> %>
+        <%# <source src="<%= asset_path('Small_Business_Owners.mp4') %>
+          <%# Your browser does not support the video tag. %>
+        <%# </video> %>
+      <%# </div> %>
+    <%# </div> %>
+    <%# <div class="col-5"> %>
+      <%# <div class="card-category-home text-left"> %>
+        <%# <div class="text-left"> %>
+        <%# <h2 class= "mb-5">HOW IT WORKS</h2> %>
+          <%# <ul style="list-style-type: none;"> %>
+            <%# <li><i class="fa-solid fa-check"></i> Track your incomes and expenses</li> %>
+            <%# <li><i class="fa-solid fa-check"></i>  See everything in one place</li> %>
+            <%# <li><i class="fa-solid fa-check"></i>  Analize your revenue in graphics</li> %>
+          <%# </ul> %>
+<%#  %>
+       <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
+<%#  %>
