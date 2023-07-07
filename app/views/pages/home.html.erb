@@ -1,32 +1,34 @@
-
-<div class="banner">
-    <div class="container mt-5">
-    <p>A SIMPLE WAY TO TRACK YOUR EXPENSES AND INCOMES IN ONE PLACE</p>
-    <h1> "Run your business finances with simplicity and ease" </h1>
-
-      <div class="text-center mt-4 pl-5">
-        <%= link_to "START YOUR FREE TRIAL", new_user_registration_path, class:"btn btn-primary", data: { turbo_frame: "signup_modal" } %>
-      </div>
-    </div>
-</div>
-
 <div class="container">
   <div class="row">
-   <div class="d-flex col-md-6">
-    <div class="video-container" style="background-video: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))">
-      <video playinline preload="auto" width="100%" height="100%" muted controls>
-        <source src="<%= asset_path('Small_Business_Owners.mp4') %>" type="video/mp4">
-          Your browser does not support the video tag.
-      </video>
-    <div class="col-md-6 d-flex">
-      <h1> "How it works" </h1>
-
-
+    <div class="col-md-6">
+      <div class="banercito">
+      <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1688692928/TheRock_gcajg5.png" alt="flor">
+      </div>
     </div>
-   </div>
+    <div class="col-md-6 justify-center">
+      <div class="banner">
+        <h1>Rock Your Finances with GESTIONAME!</h1>
+        <h3>Simplify the Art of Financial Management</h3>
+        <%# <h4>TRACK YOUR EXPENSES AND INCOMES OF YOUR SMALL BUSINESS</h4> %>
+      </div>
+    <div>
   </div>
 </div>
 
+  <div class="banner2 d-flex justify-content-center">
+    <div class="card-category-banner">
+      <p>Grow your business</p>
+      <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1688687655/flor2_m2cjl4.png" alt="flor">
+    </div>
+
+    <div class="card-category-banner">
+     <h2>Make it easy</h2>
+    </div>
+
+    <div class="card-category-banner">
+      <h2>Track your incomes</h2>
+    </div>
+  </div>
 
 
 
@@ -47,21 +49,29 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
+<%# <div class="container"> %>
+  <%# <div class="d-flex row"> %>
+    <%# <div class="col-7"> %>
+      <%# <div style="background-video: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4))"> %>
+        <%# <video playinline preload="auto" width="100%" height="100%" muted controls> %>
+        <%# <source src="<%= asset_path('Small_Business_Owners.mp4') %>
+          <%# Your browser does not support the video tag. %>
+        <%# </video> %>
+      <%# </div> %>
+    <%# </div> %>
+    <%# <div class="col-5"> %>
+      <%# <div class="card-category-home text-left"> %>
+        <%# <div class="text-left"> %>
+        <%# <h2 class= "mb-5">HOW IT WORKS</h2> %>
+          <%# <ul style="list-style-type: none;"> %>
+            <%# <li><i class="fa-solid fa-check"></i> Track your incomes and expenses</li> %>
+            <%# <li><i class="fa-solid fa-check"></i>  See everything in one place</li> %>
+            <%# <li><i class="fa-solid fa-check"></i>  Analize your revenue in graphics</li> %>
+          <%# </ul> %>
+<%#  %>
+       <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
+<%#  %>
