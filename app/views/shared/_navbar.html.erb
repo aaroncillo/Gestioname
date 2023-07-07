@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon-white navbar-lewagon fixed-top">
   <div class="container-fluid " >
       <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "logotext5.png"%>
+      <%# <%= image_tag "logo11.png"%> 
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -37,8 +37,12 @@
         <% else %>
           <li class="nav-item">
             <li class="nav-item">
-            <%= link_to "Log in", companies_path, class:"btn btn-outline-success", data: { turbo_frame: "login_modal" }%>
-            <%= link_to "Sign up", new_user_registration_path, class:"btn btn-outline-success", data: { turbo_frame: "signup_modal" }%>
+            <%= link_to "START YOUR FREE TRIAL", new_user_registration_path, class:"btn btn-light", data: { turbo_frame:
+            "signup_modal" } %>
+            <%= link_to "How it works", companies_path, class:"btn btn-light"%>
+            <%= link_to "Pricing", companies_path, class:"btn btn-light"%>
+            <%= link_to "Log in", companies_path, class:"btn btn-light", data: { turbo_frame: "login_modal" }%>
+            <%= link_to "Sign up", new_user_registration_path, class:"btn btn-light", data: { turbo_frame: "signup_modal" }%>
           </li>
         <% end %>
       </ul>

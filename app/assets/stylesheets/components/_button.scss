@@ -11,3 +11,12 @@
   // color: white;
 // }
 
+.btn-primary {
+  border-color: #74c69d!important;
+  color:white!important;
+  background-color: #74c69d!important;
+  &:hover {
+    background-color: #2d6a4f!important;
+
+  }
+}
