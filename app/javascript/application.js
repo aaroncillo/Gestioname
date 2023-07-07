@@ -9,4 +9,3 @@ import 'datatables.net-buttons/js/buttons.html5.mjs';
 import 'datatables.net-buttons/js/buttons.print.mjs';
 import './controllers/vfs_fonts';
 import './controllers/pdfmake.min';
-import './charts.js.erb';

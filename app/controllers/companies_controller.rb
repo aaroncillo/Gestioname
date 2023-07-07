@@ -1,30 +1,12 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: %i[ show edit update destroy ]
-  before_action :set_company_user, only: %i[ show index edit new]
-  # GET /restaurants
+  before_action :set_company, only: %i[show edit update destroy]
+  before_action :set_company_user, only: %i[show index edit new]
+
+  # GET /companies
   def index
   end
-  # GET /restaurants/1
-  def import
-    file = params[:file] # Obtiene el archivo Excel enviado desde el formulario
 
-    if file.present? && file.respond_to?(:path)
-      data = Roo::Spreadsheet.open(file.path) # Abre el archivo Excel utilizando la gema "roo"
-
-      # Procesa los datos del archivo Excel según tus necesidades
-      # Por ejemplo, puedes iterar sobre las filas y guardar los datos en la base de datos
-      data.each_row_streaming do |row|
-        # Lógica de procesamiento de datos
-      end
-
-      flash[:notice] = 'El archivo Excel se ha importado correctamente.'
-    else
-      flash[:alert] = 'Debe seleccionar un archivo Excel para importar.'
-    end
-
-    redirect_to company_path(@company)
-  end
-
+  # GET /companies/1
   def show
     incomes = Income.joins(:company).where(company_id: params[:id])
     expenses = Expense.joins(:company).where(company_id: params[:id])
@@ -43,60 +25,81 @@ class CompaniesController < ApplicationController
     end
 
     @total_amount = @incomes_amount - @expense_amount
+
     unless @incomes_amount.zero?
       @porcentaje_incomes = ((@incomes_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
       @porcentaje_expense = ((@expense_amount / (@incomes_amount + @expense_amount)) * 100).round(2)
     end
   end
-  # GET /restaurants/new
+
+  # GET /companies/new
   def new
     @company = Company.new
   end
-  # GET /restaurants/1/edit
-  def edit
 
+  # GET /companies/1/edit
+  def edit
   end
-  # POST /restaurants
+
+  # POST /companies
   def create
     @company = Company.new(company_params)
     @company.user = current_user
+
     if @company.save
-      redirect_to @company, notice: "company was successfully created."
+      redirect_to @company, notice: 'Company was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
   end
-  # PATCH/PUT /companys/1
+
+  # PATCH/PUT /companies/1
   def update
     if @company.update(company_params)
-      redirect_to @company, notice: "company was successfully updated."
+      redirect_to @company, notice: 'Company was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
   end
-  # DELETE /companys/1
+
+  # DELETE /companies/1
   def destroy
     @company.destroy
-    redirect_to companies_path, notice: "company was successfully destroyed.", status: :see_other
+    redirect_to companies_path, notice: 'Company was successfully destroyed.', status: :see_other
   end
 
   def chart
     @chart_type = params[:chart_type]
-    @expenses = Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount")
-    render partial: "chart", locals: { chart_type: @chart_type, expenses: @expenses }
+    @expenses = Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum('amount')
+    render partial: 'chart', locals: { chart_type: @chart_type, expenses: @expenses }
+  end
+
+  def import
+    file = params[:file]
+    company_id = params[:company_id]
+
+    return redirect_to companies_path, alert: 'No such file detected' unless file
+    return redirect_to companies_path, alert: 'Please select a CSV file instead' unless file.content_type == 'text/csv'
+
+    csv_import_service = CsvImportService.new(file, company_id, current_user)
+    csv_import_service.import
+
+    redirect_to company_path(company_id), notice: "#{csv_import_service.number_imported_with_last_run} incomes imported"
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_company
-      @company = Company.find(params[:id])
-    end
-    # Only allow a list of trusted parameters through.
-    def company_params
-      params.require(:company).permit(:name_company, :description, :user_id)
-    end
 
-    def set_company_user
-      @companies = Company.where(user_id: current_user.id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_company
+    @company = Company.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def company_params
+    params.require(:company).permit(:name_company, :description, :user_id)
+  end
+
+  def set_company_user
+    @companies = Company.where(user_id: current_user.id)
+  end
 end
