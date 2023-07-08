@@ -3,8 +3,6 @@
     <%= f.input :description %>
     <%= f.input :date, order: [:day, :month, :year], html5:true %>
     <%= f.input :amount %>
-    <%#= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map{|services| services.expense_category}%>
-
     <%= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map { |et| [et.expense_category, et.id] } %>
 
     <%#= f.association :expense %>

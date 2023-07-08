@@ -2,6 +2,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
+<%= link_to "new incomes", new_company_income_path(@company), class:"btn btn-primary", data: { turbo_frame: "incomes_modal" } %>
+<%= link_to "new expenses", new_company_expense_path(@company), class:"btn btn-primary", data: { turbo_frame: "expenses_modal" } %>
 
 <div class="container">
   <div class="class row">
@@ -35,7 +37,7 @@
             </div>
             <h5 class="text-body-tertiary">Total Expense</h5>
             <h3 class="text-black fw-bold">$<%= number_with_delimiter(@expense_amount.to_i, delimiter: '.', separator: ',')  %></h3>
-              <%= link_to "expenses", new_company_expense_path(@company), class:"btn btn-primary", data: { turbo_frame: "expenses_modal" }%>
+              <%= link_to "expenses", company_expenses_path(@company), class:"btn btn-primary", data: { turbo_frame: "expenses_modal" }%>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
             <div id="chart">
@@ -53,7 +55,7 @@
             </div>
             <h5 class="text-body-tertiary">Total Income</h5>
             <h3 class="text-black fw-bold">$<%= number_with_delimiter(@incomes_amount.to_i, delimiter: '.', separator: ',')  %></h3>
-            <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary" %>
+            <%= link_to "incomes", company_incomes_path(@company), class:"btn btn-primary", data: { turbo_frame: "incomes_modal" } %>
           </div>
           <div class="col-5 d-flex align-items-center justify-content-center">
 
@@ -68,6 +70,9 @@
   <% total_amount = 0 %>
   <% incomes_amount = 0 %>
   <% expense_amount = 0 %>
+  <%= turbo_frame_tag "expenses_modal", target: "_top" %>
+  <%= turbo_frame_tag "incomes_modal", target: "_top" %>
+  <%= turbo_frame_tag "index_modal", target: "_top" %>
   <%= turbo_frame_tag "expenses_modal", target: "_top" %>
 
 
