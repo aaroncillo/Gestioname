@@ -34,7 +34,11 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
-    @company = Company.new
+    if current_user.subscription == false && @companies.count < 2
+      redirect_to companies_path, alert: 'You have reached the maximum number of companies allowed'
+    else
+      @company = Company.new
+    end
   end
 
   # GET /companies/1/edit

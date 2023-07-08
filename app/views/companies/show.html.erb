@@ -70,9 +70,11 @@
   <% expense_amount = 0 %>
   <%= turbo_frame_tag "expenses_modal", target: "_top" %>
 
-  <h2 class="fw-bold mt-3">Graphs</h2>
+
 
   <%# EN ESTE DIV DEBERIA IR GRAFICOS QUE IRÁ CAMBIANDO ??%>
+  <% if current_user.subscription%>
+  <h2 class="fw-bold mt-3">Graphs</h2>
   <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Column chart</button>
@@ -102,6 +104,7 @@
       </div>
     </div>
   </div>
+<% end  %>
 
   <%# EN ESTE DIV DEBERIA IR TODO EL CONTENIDO QUE IRÁ CAMBIANDO ??%>
   <%# link_to 'Importar Excel', import_company_path(@company), class: 'btn btn-primary' %>
