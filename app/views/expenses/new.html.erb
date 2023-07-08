@@ -1,3 +1,6 @@
-<%= render "form", expense:@expense%>
+<%= render "expenses_modal", title: "Expenses" do %>
+  <%= render "new_modal" %>
+<% end %>
+
 <%= link_to "Back", company_expenses_path, class:"btn btn-primary" %>
 <%= link_to "Create Expense Category", new_company_expense_type_path, class:"btn btn-success"%>
