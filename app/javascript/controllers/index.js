@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ExpensesModalController from "./expenses_modal_controller"
+application.register("expenses-modal", ExpensesModalController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
