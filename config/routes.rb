@@ -8,6 +8,9 @@ Rails.application.routes.draw do
     resources :incomes
     resources :expenses
     resources :expense_types
+    collection do
+      post :import
+    end
   end
 
   resources :balances, only: %i[index show]

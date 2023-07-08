@@ -1,0 +1,9 @@
+<%= form_with url: import_companies_path, method: :post do |f|%>
+  <div class="container">
+  <%= f.file_field :file, accept: ".csv,.xlsx" %>
+  <%= hidden_field_tag :company_id, @company.id %>
+    <div class="btn-group">
+      <%= f.submit "upload income", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

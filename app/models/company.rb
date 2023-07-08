@@ -12,11 +12,10 @@
 class Company < ApplicationRecord
   belongs_to :user
 
-  # has manys
-
   has_many :incomes, dependent: :destroy
   has_many :expenses, dependent: :destroy
   has_many :expense_types, dependent: :destroy
+  has_many :balances, dependent: :destroy
 
   # validaciones
 
