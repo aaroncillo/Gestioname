@@ -183,33 +183,8 @@
     table.draw();
   });
 });
- window.onload = function() {
-    let expense_amount = <%= @porcentaje_expense %>
-    var options = {
-      chart: {
-        height: 180,
-        type: 'radialBar',
-      },
-      series: [expense_amount],
-      labels: ['Expense'],
-    };
 
-    var chart = new ApexCharts(document.querySelector("#chart"), options);
-    chart.render();
 
-    let incomes_amount = <%= @porcentaje_incomes %>
-    var options2 = {
-      chart: {
-        height: 180,
-        type: 'radialBar',
-      },
-      series: [incomes_amount],
-      labels: ['Income'],
-    };
-
-    var chart2 = new ApexCharts(document.querySelector("#chart2"), options2);
-    chart2.render();
-  };
 </script>
 
 
