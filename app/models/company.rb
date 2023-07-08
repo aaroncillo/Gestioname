@@ -17,6 +17,7 @@ class Company < ApplicationRecord
   has_many :incomes, dependent: :destroy
   has_many :expenses, dependent: :destroy
   has_many :expense_types, dependent: :destroy
+  has_many :balances, dependent: :destroy
 
   # validaciones
 
