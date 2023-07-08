@@ -25,13 +25,53 @@
   }
 }
 
+.card-category-how-it-works {
+  background-color: white;
+  height: 301px;
+  width: 250px;
+  margin-top: 77px;
+  margin-left: 188px;
+  margin-right: 188px;
+  display: flex;
+  justify-content: center;
+  color: rgb(105, 243, 37);
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  h5 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 18px;
+    }
+  &:hover {
+    filter: brightness(90%);
+    transition: filter 0.3s ease;
+   }
+}
 
 
+.card-category-how-it-works {
+  padding: 56px;
+}
 
-
-
-
-
+.card-category-subscription {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background-color:white;
+}
+// .icono-chico{
+  // width: 50px;
+  // height: 50px;
+  // background-color: cornflowerblue;
+  // border-radius: 90%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+// }
+//
 
 
 // .card-category-home {
