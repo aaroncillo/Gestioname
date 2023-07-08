@@ -26,47 +26,63 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
-        <div class="barra-lateral">
-          <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-            <%= link_to "/", class: "text-decoration-none" do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-house fa-3x") %>
-              <p class="fw-bold subtitulos">Home</p>
-            <% end %>
+          <div class="row">
+              <div class="col-sm-auto sticky-top barra">
+                  <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top barra">
+                    <div class="d-flex flex-column text-center hover-effect">
+                      <%= link_to "/", class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-house fa-3x") %>
+                        <p class="fw-bold subtitulos">Home</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x") %>
+                        <p class="fw-bold subtitulos">Companies</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-money-bill fa-3x") %>
+                        <p class="fw-bold subtitulos">Incomes</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-right-from-bracket fa-3x") %>
+                        <p class="fw-bold subtitulos">Expenses</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-credit-card fa-3x") %>
+                        <p class="fw-bold subtitulos">Subscription</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-gear fa-3x") %>
+                        <p class="fw-bold subtitulos">Settings</p>
+                      <% end %>
+                    </div>
+                    <div class="dropdown">
+                      <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <% if current_user.avatar.attached? %>
+                          <%= image_tag current_user.avatar, class:"avatar-large"%>
+                        <% else %>
+                          <%= image_tag "sinimagen.png", class:"avatar-large" %>
+                        <% end %>
+                      </a>
+                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                        </ul>
+                    </div>
+                  </div>
+              </div>
           </div>
-          <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-            <%= link_to companies_path, class: "text-decoration-none" do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x") %>
-              <p class="fw-bold subtitulos">Companies</p>
-            <% end %>
-          </div>
-          <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-            <%= link_to companies_path, class: "text-decoration-none" do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-money-bill fa-3x") %>
-              <p class="fw-bold subtitulos">Incomes</p>
-            <% end %>
-          </div>
-          <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-            <%= link_to companies_path, class: "text-decoration-none" do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-right-from-bracket fa-3x") %>
-              <p class="fw-bold subtitulos">Expenses</p>
-            <% end %>
-          </div>
-          <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-            <%= link_to companies_path, class: "text-decoration-none" do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-credit-card fa-3x") %>
-              <p class="fw-bold subtitulos">Subscription</p>
-            <% end %>
-          </div>
-          <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-            <%= link_to companies_path, class: "text-decoration-none" do %>
-              <%= content_tag(:i, "", class: "fa-solid fa-gear fa-3x") %>
-              <p class="fw-bold subtitulos">Settings</p>
-            <% end %>
-          </div>
-
-        </div>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
