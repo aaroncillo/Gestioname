@@ -29,7 +29,6 @@
   background-color: white;
   height: 301px;
   width: 250px;
- 
   margin-top: 77px;
   margin-left: 188px;
   margin-right: 188px;
@@ -41,11 +40,19 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  
+
+
+
 
   h5 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
     }
+  &:hover {
+    filter: brightness(90%);
+    transition: filter 0.3s ease;
+   }
 }
 
 
