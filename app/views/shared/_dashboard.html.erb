@@ -26,86 +26,63 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar sidebar-dark accordion mt-4" id="accordionSidebar" style="background-color: #9999CC">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Gestioname</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-
-
-          <p>
-            <button class="btn text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-              Companies
-            </button>
-          </p>
-          <div class="collapse" id="collapseExample">
-            <div class="card card-body "  style="background-color: #9999CC">
-            <% if user_signed_in? %>
-              <% @companies.each do |company| %>
-                <li class="nav-item">
-                    <%= link_to company.name_company, company_path(company), class: "text-white " %>
-
-                </li>
-              <% end %>
-            <% end %>
-            </div>
+          <div class="row">
+              <div class="col-sm-auto sticky-top barra">
+                  <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top barra">
+                    <div class="d-flex flex-column text-center hover-effect">
+                      <%= link_to "/", class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-house fa-3x") %>
+                        <p class="fw-bold subtitulos">Home</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x") %>
+                        <p class="fw-bold subtitulos">Companies</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-money-bill fa-3x") %>
+                        <p class="fw-bold subtitulos">Incomes</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-right-from-bracket fa-3x") %>
+                        <p class="fw-bold subtitulos">Expenses</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-credit-card fa-3x") %>
+                        <p class="fw-bold subtitulos">Subscription</p>
+                      <% end %>
+                    </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                      <%= link_to companies_path, class: "text-decoration-none" do %>
+                        <%= content_tag(:i, "", class: "fa-solid fa-gear fa-3x") %>
+                        <p class="fw-bold subtitulos">Settings</p>
+                      <% end %>
+                    </div>
+                    <div class="dropdown">
+                      <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <% if current_user.avatar.attached? %>
+                          <%= image_tag current_user.avatar, class:"avatar-large"%>
+                        <% else %>
+                          <%= image_tag "sinimagen.png", class:"avatar-large" %>
+                        <% end %>
+                      </a>
+                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                        </ul>
+                    </div>
+                  </div>
+              </div>
           </div>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-        </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
