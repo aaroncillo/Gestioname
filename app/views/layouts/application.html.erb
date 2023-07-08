@@ -43,12 +43,10 @@
     <% else %>
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
-
-
       <%= turbo_frame_tag "login_modal", target: "_top" %>
       <%= turbo_frame_tag "signup_modal", target: "_top" %>
-      <%= render "shared/footer" %>
 
+      <%= render "shared/footer" %>
       <%= yield %>
       <% end %>
   </body>
