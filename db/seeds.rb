@@ -13,6 +13,8 @@ User.destroy_all
 puts "Creando Usuario de Matias y Cecilia"
 usuario1 = User.create!(first_name: "Matias", last_name: "Avaca", email: "avaca.matias1@gmail.com", password: "123456", subscription: false)
 usuario2 = User.create!(first_name: "Cecilia", last_name: "Reynoso", email: "cecireynoso@gmail.com", password: "123456", subscription: true)
+usuario3 = User.create!(first_name: "Aaron", last_name: "Deik", email: "aarondeik@live.cl", password: "123456",
+subscription: true)
 
 # Creacion de EMPRESAS
 
@@ -20,16 +22,24 @@ puts "Creando Empresa de Matias y Cecilia"
 compañia1_mati = Company.create!(user_id: usuario1.id, name_company: "La Tienda de River", description: "Venta de todo sobre river.")
 compañia1_ceci = Company.create!(user_id: usuario2.id, name_company: "Las Flores", description: "Ventas florales.")
 compañia2_ceci = Company.create!(user_id: usuario2.id, name_company: "La Zapateria", description: "Ventas de Zapatos.")
+compañia3_aaron = Company.create!(user_id: usuario3.id, name_company: "La cerveceria", description: "Venta de Cerveza.")
 
 # Creacion Subscription Cecilia, Matias no Tiene
 
 puts "Creando Subscripcion de Cecilia"
-subscription_ceci = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50)
+subscription_ceci = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50, subscription_type: "premium")
 
+subscription_mati = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50,
+subscription_type: "basic")
+
+subscription_aaron = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50,
+subscription_type: "trial")
 # Creacion del Metodo de Pago de Cecilia
 
 puts "Creando metodo de pago de Cecilia"
 payment_ceci = Payment.create!(subscription_id: subscription_ceci.id, payment_method: "Paypal")
+payment_mati = Payment.create!(subscription_id: subscription_mati.id, payment_method: "Paypal")
+
 
 
 # Creacion de los Ingresos de Matias (solo 3)
@@ -37,6 +47,13 @@ puts "Creando Ingresos de Matias Empresa 1 (3)"
 income_mati = Income.create!(company_id: compañia1_mati.id, item_name: "Remera de River", date: "2023-4-18", description: "Una Remera Original de River", amount: 100)
 income_mati = Income.create!(company_id: compañia1_mati.id, item_name: "Pantalon de River", date: "2023-4-19", description: "Un Pantalon Original de River", amount: 70)
 income_mati = Income.create!(company_id: compañia1_mati.id, item_name: "Campera de River", date: "2023-4-19", description: "Una Campera de River", amount: 140)
+
+# Creacion de los Ingresos de Aaron (solo 3)
+income_aaron = Income.create!(company_id: compañia3_aaron.id, item_name: "Cerveza Quilmes", date: "2023-4-18", description: "Un litro de cerveza", amount: 100)
+income_aaron = Income.create!(company_id: compañia3_aaron.id, item_name: "Cerveza Patagonia", date: "2023-4-19", description: "Un litro de cerveza", amount: 70)
+income_aaron = Income.create!(company_id: compañia3_aaron.id, item_name: "Cervaze Heineken", date: "2023-4-19", description: "Un litro de cerveza", amount: 140)
+
+
 
 # Creacion de los Ingresos de Cecilia empresa 1 (solo 5)
 puts "Creando Ingresos de Cecilia Empresa 1 (5)"
@@ -82,6 +99,22 @@ expenses_mati = Expense.create!(company_id: compañia1_mati.id, item_name: "Arri
 expenses_mati = Expense.create!(company_id: compañia1_mati.id, item_name: "Agua y luz", date: "2023-4-19", description: "Gasto de luz, agua, gas.", amount: 70, expense_type_id: expense_type_mati2.id)
 expenses_mati = Expense.create!(company_id: compañia1_mati.id, item_name: "Publicidad", date: "2023-4-19", description: "Publicidad para darse a conocer", amount: 30, expense_type_id: expense_type_mati3.id)
 
+# Creación de expenses type de empresa Aaron
+
+# Creacion del tipo de gasto de Cecilia empresa 1 (solo 5)
+puts "Creando Tipos de Gastos de Aaron empresa 3"
+expense_type_aaron1 = ExpenseType.create!(expense_category: "Arriendo",company_id: compañia3_aaron.id)
+expense_type_aaron2 = ExpenseType.create!(expense_category: "Servicios básicos",company_id: compañia3_aaron.id)
+expense_type_aaron3 = ExpenseType.create!(expense_category: "Personal",company_id: compañia3_aaron.id)
+
+# Creacion de los gastos de Aaron empresa 3 (solo 3)
+puts "Creando Gastos de Aaron Empresa 3 (3)"
+expenses_aaron = Expense.create!(company_id: compañia3_aaron.id, item_name: "Arriendo", date: "2023-4-18", description: "Gasto del
+arriendo", amount: 300, expense_type_id: expense_type_aaron1.id)
+expenses_aaron = Expense.create!(company_id: compañia3_aaron.id, item_name: "Agua y luz", date: "2023-4-19", description: "Gasto de
+luz, agua, gas.", amount: 70, expense_type_id: expense_type_aaron2.id)
+expenses_aaron = Expense.create!(company_id: compañia3_aaron.id, item_name: "Publicidad", date: "2023-4-19", description: "Publicidad
+para darse a conocer", amount: 30, expense_type_id: expense_type_aaron3.id)
 
 # Creacion de los gastos de Cecilia empresa 1 (solo 5)
 puts "Creando Gastos de Cecilia Empresa 1 (5)"
