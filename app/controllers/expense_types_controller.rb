@@ -56,7 +56,7 @@ class ExpenseTypesController < ApplicationController
   def set_filter_company
     @company = Company.find(params[:company_id])
   end
-  
+
   def set_company_user
     @companies = Company.where(user_id: current_user.id)
   end
