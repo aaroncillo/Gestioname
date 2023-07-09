@@ -1,2 +1,100 @@
-<h1>Subscriptions#index</h1>
-<p>Find me in app/views/subscriptions/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <div class="d-flex flex-column centrado">
+        <h1>Payment Method</h1>
+        <hr style="border: 1px solid black;">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum voluptates illo, quia, provident necessitatibus ipsum corporis quod distinctio quisquam deleniti quasi, earum repellat? Suscipit officia soluta qui maxime illum.</p>
+        <hr style="border: 1px solid black;">
+          <%= link_to "See Plans", "seePlansBtn", class:"btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-7">
+      <div class="info-pago imagen">
+        <%= image_tag("payment2.png", alt: "flor") %>
+      </div>
+    </div>
+  </div>
+  <div class="tarjetero">
+    <div class="linea tarjetas-pago" id="trial">
+      <div class="row">
+        <div class="col-3">
+          <%= image_tag("hamster1.png", alt: "flor", class:"fotos-tarjetas") %>
+        </div>
+        <div class="col-3 text-center">
+            <div class="contenido-tarjetas">
+              <h1 class="titulos-tarjetas text-black fw-bold">Trial</h1>
+            </div>
+        </div>
+        <div class="col-3">
+            <ul class="contenido-tarjetas">
+              <li>All Graphs</li>
+            </ul>
+        </div>
+        <div class="col-3">
+          <%= link_to "Get Now!", "/", class:"btn btn-danger botones-get" %>
+        </div>
+      </div>
+    </div>
+    <div class="linea tarjetas-pago" id="trial2">
+      <div class="row">
+        <div class="col-3">
+          <%= image_tag("hamster3.png", alt: "flor", class:"fotos-tarjetas") %>
+        </div>
+        <div class="col-3 text-center">
+            <div class="contenido-tarjetas">
+              <h1 class="titulos-tarjetas text-black fw-bold">Basic</h1>
+            </div>
+        </div>
+        <div class="col-3">
+            <ul class="contenido-tarjetas">
+              <li>All Graphs</li>
+            </ul>
+        </div>
+        <div class="col-3">
+          <%= link_to "Get Now!", "/", class:"btn btn-danger botones-get" %>
+        </div>
+      </div>
+    </div>
+    <div class="linea tarjetas-pago mb-5" id="trial3">
+      <div class="row">
+        <div class="col-3">
+          <%= image_tag("hamster2.png", alt: "flor", class:"fotos-tarjetas") %>
+        </div>
+        <div class="col-3">
+            <div class="contenido-tarjetas text-center">
+              <h1 class="titulos-tarjetas text-black fw-bold">Premium</h1>
+            </div>
+        </div>
+        <div class="col-3">
+            <ul class="contenido-tarjetas">
+              <li>All Graphs</li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <%= link_to "Get Now!", "/", class:"btn btn-danger botones-get" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var seePlansBtn = document.querySelector('.btn-primary');
+    var tarjetasPago = document.querySelectorAll('.tarjetero');
+
+    seePlansBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Obtener la posición del contenedor de las tarjetas de pago
+      var tarjetasOffset = document.getElementById('trial').offsetTop;
+
+      // Hacer scroll hacia la posición del contenedor
+      window.scrollTo({
+        top: tarjetasOffset,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>

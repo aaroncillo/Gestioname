@@ -1,0 +1,71 @@
+.container {
+  position: relative;
+}
+
+.info-pago {
+  position: absolute;
+  top: -20px; /* Ajusta este valor según sea necesario */
+  right: 0;
+}
+
+
+.imagen{
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+}
+.centrado{
+  text-align: center;
+  margin-top: 70px;
+}
+
+.linea {
+  background-color: rgba(237, 235, 235, 0.542);
+  margin-top: 15px;
+}
+.tarjetas-pago{
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.fotos-tarjetas{
+  border-radius: 50%;
+  max-width: 200px;
+  height: auto;
+}
+
+.contenido-tarjetas{
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.titulos-tarjetas{
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.contenido-tarjetas{
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.botones-get{
+  margin-top: 150px;
+  margin-right: 90px;
+  width: 200px;
+  height: 50px;
+}
+
+.imagen:hover{
+  transform: scale(1.1);
+  transition: 0.5s;
+}

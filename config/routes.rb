@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :companies, shalow: true do
     # resources :incomes, only: %i[new create index]
     # resources :expenses, only: %i[new create index]
+    resources :subscriptions
     resources :incomes
     resources :expenses
     resources :expense_types
