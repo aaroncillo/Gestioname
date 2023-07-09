@@ -58,14 +58,30 @@
   margin-bottom: 10px;
 }
 
+.unordered-list{
+  color: rgb(83, 83, 83);
+}
+
 .botones-get{
-  margin-top: 150px;
-  margin-right: 90px;
   width: 200px;
   height: 50px;
 }
 
 .imagen:hover{
   transform: scale(1.1);
-  transition: 0.5s;
+  transition: 0.5s ease-in-out;
+}
+
+.fotos-tarjetas:hover{
+  transform: scale(1.1);
+  transition: 0.5s ease-in-out;
+}
+.price {
+  color: #e83161;
+  font-weight: bold;
+  align-items: center;
+}
+
+.tmño{
+  font-size: 13px;
 }

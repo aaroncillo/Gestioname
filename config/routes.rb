@@ -13,10 +13,10 @@ Rails.application.routes.draw do
       post :import
     end
   end
-
   resources :balances, only: %i[index show]
   resources :incomes, except: %i[index new create]
   resources :expenses, except: %i[index new create]
+  resources :subscriptions, except: %i[index new create]
 
   resources :expense_types, except: %i[destroy index]
 end
