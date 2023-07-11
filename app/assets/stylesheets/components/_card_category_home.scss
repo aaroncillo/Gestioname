@@ -64,8 +64,50 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 20px;
-  background-color:white;
+  background-color:#37ab60;
+  height: 473px;
+  width: 300px;
+  margin-left: 54px;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+
+  img {
+    width: 200%;
+  }
+
+  h2 {
+    font-family: 'Anton', sans-serif;
+    color: black;
+    word-spacing: 3px;
+    letter-spacing: 3px;
+    font-size: 20px;
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // .icono-chico{
   // width: 50px;
   // height: 50px;
