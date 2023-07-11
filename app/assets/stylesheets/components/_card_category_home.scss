@@ -61,10 +61,10 @@
 }
 
 .card-category-subscription {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  background-color:#37ab60;
+
+
+
+  background:radial-gradient(circle, #37ab60, #62cf97);
   height: 473px;
   width: 300px;
   margin-left: 54px;
@@ -75,7 +75,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 
   img {
-    width: 200%;
+    width: 200px;
   }
 
   h2 {
