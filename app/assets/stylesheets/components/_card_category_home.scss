@@ -42,11 +42,31 @@
   h5 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
+    text-align: center;
     }
   &:hover {
     filter: brightness(90%);
     transition: filter 0.3s ease;
    }
+
+   small-icon {
+    justify-content: center;
+    width: 70px;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(7, 7, 7);
+    border-radius: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+
+
+
+
+
+
+
 }
 
 
@@ -61,9 +81,6 @@
 }
 
 .card-category-subscription {
-
-
-
   background:radial-gradient(circle, #37ab60, #62cf97);
   height: 473px;
   width: 300px;
