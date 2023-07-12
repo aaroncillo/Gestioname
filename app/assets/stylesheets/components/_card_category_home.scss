@@ -42,33 +42,30 @@
   h5 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
-    text-align: center;
-    }
+  }
+
   &:hover {
     filter: brightness(90%);
     transition: filter 0.3s ease;
    }
-
-   small-icon {
-    justify-content: center;
-    width: 70px;
-    width: 70px;
-    height: 70px;
-    background-color: rgb(7, 7, 7);
-    border-radius: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   }
+}
 
 
+.icono-chico2 {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(70, 67, 67);
+  border-radius: 90%;
+  display: flex;
+  margin-left: 18px;
+}
 
-
-
+.font-awesome-icon {
+  margin-top: 20px;
+  margin-left: 16px;
 
 
 }
-
 
 .card-category-how-it-works {
   padding: 56px;
