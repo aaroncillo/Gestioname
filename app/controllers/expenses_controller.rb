@@ -26,7 +26,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.company_id = @company.id
     if @expense.save
-      redirect_to company_expenses_path, notice: "expense was successfully created."
+      redirect_to @company, notice: "expense was successfully created."
     else
       render :new, status: :unprocessable_entity
     end

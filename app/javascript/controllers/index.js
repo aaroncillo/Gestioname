@@ -4,20 +4,11 @@
 
 import { application } from "./application"
 
-import ExpensesIndexModalController from "./expenses_index_modal_controller"
-application.register("expenses-index-modal", ExpensesIndexModalController)
-
-import ExpensesModalController from "./expenses_modal_controller"
-application.register("expenses-modal", ExpensesModalController)
+import DashboardsController from "./dashboards_controller"
+application.register("dashboards", DashboardsController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
-
-import IncomesIndexModalController from "./incomes_index_modal_controller"
-application.register("incomes-index-modal", IncomesIndexModalController)
-
-import IncomesModalController from "./incomes_modal_controller"
-application.register("incomes-modal", IncomesModalController)
 
 import LoginModalController from "./login_modal_controller"
 application.register("login-modal", LoginModalController)
