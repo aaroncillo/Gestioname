@@ -81,3 +81,4 @@ end
 ## GEMAS AGREGADAS POR NOSOTROS
 gem "cloudinary"
 gem "chartkick"
+gem 'bootstrap', '~> 5.3.0.alpha3'

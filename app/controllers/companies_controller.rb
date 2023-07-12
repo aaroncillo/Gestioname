@@ -8,19 +8,21 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   def show
-    incomes = Income.joins(:company).where(company_id: params[:id])
-    expenses = Expense.joins(:company).where(company_id: params[:id])
-    @registers = incomes + expenses
+    @income = Income.new
+    @expense = Expense.new
+    @incomes = Income.joins(:company).where(company_id: params[:id])
+    @expenses = Expense.joins(:company).where(company_id: params[:id])
+    @registers = @incomes + @expenses
 
     @total_amount = 0
     @incomes_amount = 0
     @expense_amount = 0
 
-    incomes.each do |income|
+    @incomes.each do |income|
       @incomes_amount += income.amount
     end
 
-    expenses.each do |expense|
+    @expenses.each do |expense|
       @expense_amount += expense.amount
     end
 
