@@ -2,50 +2,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-  New Expense
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel1">New Expense</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= render "expenses/new_modal_expense" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-  New Income
-</button>
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel2">New Income</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <%= render "incomes/new_modal_income" %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <div class="container">
   <div class="class row">
@@ -77,16 +36,38 @@
             <i class="fa-solid fa-chart-simple"></i>
         </div>
           <div class="col">
-            <h5 class="text-body-tertiary">Total Expense</h5>
+            <h5 class="text-body-tertiary">Expenses</h5>
             <h3 class="text-black fw-bold">$<%= number_with_delimiter(@expense_amount.to_i, delimiter: '.', separator: ',')  %></h3>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
-              Expenses
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+              <i class="fas fa-plus" style="color: #ffffff;"></i>
             </button>
-            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              <i class="fa-sharp fa-solid fa-eye" style="color: #ffffff;"></i>
+              See all
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Expenses</h1>
+                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">New Expense</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body text-dark">
+                    <%= render "expenses/new_modal_expense" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">Expenses</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -106,7 +87,7 @@
                               <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
                               <td>$ <%= register.amount %></td>
                               <td><%= register.date %></td>
-                             <td>
+                              <td>
                               <button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="" >
                                 <%= link_to '', expense_path(register), class: 'fa fa-info-circle' %>
                               </button>
@@ -135,19 +116,42 @@
               <i class="fa-solid fa-chart-line"></i>
             </div>
           <div class="col">
-            <h5 class="text-body-tertiary">Total Income</h5>
+            <h5 class="text-body-tertiary">Incomes</h5>
             <h3 class="text-black fw-bold">$<%= number_with_delimiter(@incomes_amount.to_i, delimiter: '.', separator: ',')  %></h3>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Incomes
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal5">
+                <i class="fas fa-plus" style="color: #ffffff;"></i>
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+              <i class="fa-sharp fa-solid fa-eye" style="color: #ffffff;"></i>
+                See all
               </button>
               <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Incomes</h1>
+                      <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">New Income</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-dark">
+                      <%= render "incomes/new_modal_income" %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title text-dark fs-5" id="exampleModalLabel3">Incomes</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                      </button>
                     </div>
                     <div class="modal-body">
                       <div>
@@ -208,16 +212,19 @@
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <div class="card-contenido">
         <%= column_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
+        <%= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
       </div>
     </div>
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <div class="card-contenido">
         <%= area_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
+        <%= area_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
       </div>
     </div>
     <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
       <div class="card-contenido">
           <%= pie_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true %>
+          <%= pie_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true %>
       </div>
     </div>
   </div>
