@@ -52,10 +52,10 @@
     <div class="col-4 mb-3">
       <div class="card-category">
         <div class="row">
-          <div class="col-7">
-            <div class="icono-chico mb-3">
-              <i class="fa-solid fa-money-bill"></i>
-            </div>
+          <div class="icono-chico mb-3">
+            <i class="fa-solid fa-money-bill"></i>
+          </div>
+          <div class="col">
             <h5 class="text-body-tertiary">Total Balance</h5>
             <% if @total_amount < 0 %>
               <h3 class="text-danger fw-bold">$<%= number_with_delimiter(@total_amount.to_i, delimiter: '.', separator: ',')  %></h3>
@@ -73,16 +73,16 @@
     <div class="col-4 mb-3">
       <div class="card-category">
         <div class="row">
-          <div class="col-7">
             <div class="icono-chico mb-3">
-              <i class="fa-solid fa-chart-simple"></i>
-            </div>
+            <i class="fa-solid fa-chart-simple"></i>
+        </div>
+          <div class="col">
             <h5 class="text-body-tertiary">Total Expense</h5>
             <h3 class="text-black fw-bold">$<%= number_with_delimiter(@expense_amount.to_i, delimiter: '.', separator: ',')  %></h3>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal6">
               Expenses
             </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -106,7 +106,11 @@
                               <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
                               <td>$ <%= register.amount %></td>
                               <td><%= register.date %></td>
-                              <td><%= link_to '', expense_path(register), class: 'fa fa-info-circle' %></td>
+                             <td>
+                              <button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="" >
+                                <%= link_to '', expense_path(register), class: 'fa fa-info-circle' %>
+                              </button>
+                            </td>
                             </tr>
                           <% end %>
                         </tbody>
@@ -121,20 +125,16 @@
               </div>
             </div>
           </div>
-          <div class="col-5 d-flex align-items-center justify-content-center">
-            <div id="chart">
-            </div>
-          </div>
         </div>
       </div>
     </div>
     <div class="col-4 mb-3">
       <div class="card-category">
         <div class="row">
-          <div class="col-7">
             <div class="icono-chico mb-3">
               <i class="fa-solid fa-chart-line"></i>
             </div>
+          <div class="col">
             <h5 class="text-body-tertiary">Total Income</h5>
             <h3 class="text-black fw-bold">$<%= number_with_delimiter(@incomes_amount.to_i, delimiter: '.', separator: ',')  %></h3>
               <!-- Button trigger modal -->
@@ -181,11 +181,6 @@
                 </div>
               </div>
           </div>
-          <div class="col-5 d-flex align-items-center justify-content-center">
-
-            <div id="chart2">
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -194,9 +189,6 @@
   <% total_amount = 0 %>
   <% incomes_amount = 0 %>
   <% expense_amount = 0 %>
-
-
-
   <%# EN ESTE DIV DEBERIA IR GRAFICOS QUE IRÁ CAMBIANDO ??%>
   <% if current_user.subscription%>
   <h2 class="fw-bold mt-3">Graphs</h2>
@@ -304,6 +296,10 @@
     });
   }
 });
+
+$(document).ready(function() {
+    $('[data-bs-toggle="popover"]').popover();
+  });
 </script>
 
 

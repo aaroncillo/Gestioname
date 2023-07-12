@@ -24,7 +24,7 @@ class IncomesController < ApplicationController
     @income = Income.new(income_params)
     @income.company_id = @company.id
     if @income.save
-      redirect_to company_incomes_path, notice: "income was successfully created."
+      redirect_to @company, notice: "income was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
