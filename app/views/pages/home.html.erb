@@ -124,8 +124,8 @@
 
 <%# Carousel %>
 <div class="container">
-<div id="carouselExampleCaptions" class="carousel slide">
-  <div class="carousel-indicators">
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -133,7 +133,7 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689284693/3be016b3-a43b-4086-ab7d-254fa0cfb565_hyuwdc.jpg" class="d-block w-100" alt="florist">
-      <div class="carousel-caption d-none d-md-block">
+      <div class="carousel-caption d-none d-md-block transparent-bar">
         <h5>Carla and Richard</h5>
         <p>"We launched our business two years ago and GESTIONAME has been incredibly helpful in organizing our finances. We highly recommend it to new entrepreneurs who may not be familiar with technology because it's very easy to use."</p>
       </div>
@@ -167,7 +167,10 @@
 
 
 
-<div class="banner-subscription d-flex justify-content-around">
+
+<div class="banner-subscription-class" id="banner-subscription">
+  <h3 class="text-center">Subscription plans</h3>
+  <div class="d-flex justify-content-around">
     <div class="card-category-subscription">
       <div class="justify-content-center align-items-center">
         <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubs_jk36za.png" alt="trial-panda">
@@ -206,4 +209,5 @@
         </div>
           <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
     </div>
+  </div>
 </div>

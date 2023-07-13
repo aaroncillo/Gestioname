@@ -90,14 +90,14 @@ img {
   text-align: center;
 }
 
-.banner-subscription {
+.banner-subscription-class {
   background-color: #f7f9f9;
   background-size: cover;
-  padding: 150px 0;
-  height: 876px;
-  margin-bottom: 319px;
-  border-radius: 20px;
-  margin-top: 45px;
+  padding-bottom: 150px;
+
+  h3 {
+    padding: 91px 0;
+  }
 }
 
 #See-our-plans{
