@@ -92,13 +92,27 @@
     width: 200px;
   }
 
-  h2 {
+  h1 {
     font-family: 'Anton', sans-serif;
-    color: black;
+    color: rgb(26, 26, 29);
     word-spacing: 3px;
     letter-spacing: 3px;
-    font-size: 20px;
-
+    font-size: 50px;
+    margin-top: -64px;
+  }
+  h2 {
+    font-family: 'Anton', sans-serif;
+    color: rgb(253, 253, 255);
+    word-spacing: 3px;
+    letter-spacing: 3px;
+  }
+  ul {
+    list-style: none;
+    font-family:'Anton', sans-serif;
+    font-size: 15px;
+    color: rgb(253, 253, 255);
+    word-spacing: 3px;
+    letter-spacing: 3px;
 
   }
 }
