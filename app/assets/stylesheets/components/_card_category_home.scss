@@ -78,13 +78,13 @@
 }
 
 .card-category-subscription {
-  background:radial-gradient(circle, #37ab60, #62cf97);
-  height: 473px;
-  width: 300px;
+  background-color: #37ab60;
+  height: 600px;
+  width: 393px;
   margin-left: 54px;
   text-align: center;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 
@@ -105,16 +105,22 @@
     color: rgb(253, 253, 255);
     word-spacing: 3px;
     letter-spacing: 3px;
-  }
-  ul {
-    list-style: none;
-    font-family:'Anton', sans-serif;
-    font-size: 15px;
-    color: rgb(253, 253, 255);
-    word-spacing: 3px;
-    letter-spacing: 3px;
+    margin-bottom: 29px;
 
   }
+  ul li {
+    list-style: none;
+    font-family:'Roboto Mono', monospace;
+    font-size: 21px;
+    color: rgb(253, 253, 255);
+    padding-bottom: 20px;
+    margin-left: -15px;
+
+  }
+
+
+
+
 }
 
 

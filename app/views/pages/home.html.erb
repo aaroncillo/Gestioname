@@ -123,14 +123,18 @@
 
   </div>
 
-<div class="banner-subscription d-flex">
+<div class="banner-subscription d-flex justify-content-around">
     <div class="card-category-subscription">
-      <div class="d-flex justify-content-center align-items-center">
+      <div class="justify-content-center align-items-center">
         <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubs_jk36za.png" alt="trial-panda">
-        <h2>Free Trial </h2>
-      </div>
-      <div>
-        <h3>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi deserunt fugiat nostrum nemo neque ipsam obcaecati perferendis, eum ex dolorem temporibus laudantium possimus facilis corrupti corporis. Pariatur neque minima debitis!</h3>
+        <h1>Free Trial </h1>
+        <h2>30 days</h2>
+        <ul>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage unlimited companies</li>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access all graphs</li>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
+        </ul>
+          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
       </div>
     </div>
 
@@ -138,16 +142,24 @@
           <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubsBasic_e2wpbz.png" alt="basic-panda">
           <h1>Basic </h1>
           <h2>US$9/mo</h2>
-          <ul class="text-left">
-            <i class="fa-solid fa-circle-check d-flex mx-2" style="color: #fffff;"><li> Create just one company</li></i>
-            <i class="fa-solid fa-circle-check d-flex mx-2 " style="color: #fffff;"><li> Access to limited graphics</li></i>
-            <i class="fa-solid fa-circle-check d-flex mx-2 " style="color: #fffff;"><li> Free Support</li></i>
+          <ul>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage just one company</li>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to limited graphs</li>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
           </ul>
+          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
     </div>
 
     <div class="card-category-subscription">
         <div>
           <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubsPremium_czc4cz.png" alt="premium-panda">
+          <h1>Premium </h1>
+          <h2>US$12/mo</h2>
+          <ul>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage unlimited companies</li>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to all the graphs</li>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
         </div>
+          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
     </div>
 </div>
