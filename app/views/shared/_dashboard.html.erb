@@ -39,8 +39,8 @@
                       <% end %>
                     </div>
                     <div class="<%= 'd-none' unless controller_name == 'companies' && action_name == 'show' %>">
-                      <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-                        <%= link_to companies_path, class: "text-decoration-none" do %>
+                      <div class="d-flex flex-column text-center mt-2 p-2 hover-effect" data-bs-toggle="modal" data-bs-target="#exampleModal7">
+                        <%= link_to "", class: "text-decoration-none" do %>
                           <%= content_tag(:i, "", class: "fa-solid fa-money-bill fa-3x") %>
                           <p class="fw-bold subtitulos">Incomes</p>
                         <% end %>

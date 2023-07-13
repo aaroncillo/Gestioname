@@ -1,10 +1,4 @@
 <%= render @company %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<!-- Button trigger modal -->
-
-<!-- Button trigger modal -->
-
 
 <div class="container">
   <div class="class row">
@@ -47,63 +41,10 @@
             </button>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">New Expense</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-dark">
-                    <%= render "expenses/new_modal_expense" %>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
+              <%= render "expenses/new_modal_expense" %>
             </div>
             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">Expenses</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="data-table">
-                      <table class="table table-striped table-bordered">
-                        <thead class="thead-dark">
-                          <tr>
-                            <th scope="col" class="filterable">Item Name</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Details</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <% @expenses.sort_by(&:date).reverse.each do |register| %>
-                            <tr>
-                              <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
-                              <td>$ <%= register.amount %></td>
-                              <td><%= register.date %></td>
-                              <td>
-                              <button class="btn btn-secondary" data-bs-toggle="popover" title="Popover title" data-bs-content="" >
-                                <%= link_to '', expense_path(register), class: 'fa fa-info-circle' %>
-                              </button>
-                            </td>
-                            </tr>
-                          <% end %>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
-              </div>
+              <%= render "expenses/tabla_see_expenses" %>
             </div>
           </div>
         </div>
@@ -128,61 +69,11 @@
               </button>
               <!-- Modal -->
               <div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">New Income</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body text-dark">
-                      <%= render "incomes/new_modal_income" %>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
+                <%= render "incomes/new_modal_income" %>
               </div>
               <!-- Modal -->
               <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title text-dark fs-5" id="exampleModalLabel3">Incomes</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div>
-                        <table class="table table-striped table-bordered">
-                          <thead class="thead-dark">
-                            <tr>
-                              <th scope="col" class="filterable">Item Name</th>
-                              <th scope="col">Amount</th>
-                              <th scope="col">Date</th>
-                              <th scope="col">Details</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <% @incomes.sort_by(&:date).reverse.each do |register| %>
-                              <tr>
-                                <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
-                                <td>$ <%= register.amount %></td>
-                                <td><%= register.date %></td>
-                                <td><%= link_to '', expense_path(register), class: 'fa fa-info-circle' %></td>
-                              </tr>
-                            <% end %>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
+                <%= render "incomes/tabla_see_incomes" %>
               </div>
           </div>
         </div>
@@ -234,28 +125,7 @@
   <%# link_to 'Importar Excel', import_company_path(@company), class: 'btn btn-primary' %>
 
   <h2 class="fw-bold mt-3">Recent</h2>
-  <div class="data-table">
-    <table class="table table-striped table-bordered" id="example">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col" class="filterable">Item Name</th>
-          <th scope="col">Amount</th>
-          <th scope="col">Date</th>
-          <th scope="col">Details</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @registers.sort_by(&:date).reverse.each do |register| %>
-          <tr>
-            <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
-            <td>$ <%= register.amount %></td>
-            <td><%= register.date %></td>
-            <td><%= link_to '', expense_path(register), class: 'fa fa-info-circle' %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%= render  "tabla_registers"%>
 </div>
 <%= render "companies/import_form" %>
 

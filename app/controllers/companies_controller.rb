@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   def show
     @income = Income.new
     @expense = Expense.new
+    @expense_types = ExpenseType.new
     @incomes = Income.joins(:company).where(company_id: params[:id])
     @expenses = Expense.joins(:company).where(company_id: params[:id])
     @registers = @incomes + @expenses
