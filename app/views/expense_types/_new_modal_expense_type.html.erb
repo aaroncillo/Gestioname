@@ -1,8 +1,14 @@
-<%= simple_form_for [@company, @expense_types] do |f| %>
-          <span class="signup mt-3">Company</span>
-            <%= f.input :expense_category, placeholder: 'Categoria' %>
-            <div class="text-center">
-              <%= link_to "Back", company_path, class:"btn btn-primary" %>
-              <%= f.submit class: 'btn btn-success'%>
-            </div>
+<%= simple_form_for [@company, @expense_types], remote: true do |f| %>
+  <%= f.input :expense_category, placeholder: 'Categoria' %>
+  <div class="text-center">
+    <%= f.submit class: 'btn btn-success'%>
+  </div>
 <% end %>
+
+
+<%# <script>
+  $(document).on('submit', 'form', function(event) {
+  event.preventDefault();
+
+});
+</script> %>

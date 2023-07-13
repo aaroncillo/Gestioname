@@ -35,7 +35,7 @@ class ExpensesController < ApplicationController
   # PATCH/PUT /expense/1
   def update
     if @expense.update(expense_params)
-      redirect_to company_expenses_path, notice: "expense was successfully updated."
+      redirect_to company_path, notice: "expense was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -44,7 +44,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense = Expense.find(params[:id])
     @expense.destroy
-    redirect_to company_expenses_path(@expense.company_id), notice: "expense was successfully destroyed.", status: :see_other
+    redirect_to @expense.company_id, notice: "expense was successfully destroyed.", status: :see_other
   end
   private
     # Use callbacks to share common setup or constraints between actions.

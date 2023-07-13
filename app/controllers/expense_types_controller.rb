@@ -22,7 +22,7 @@ class ExpenseTypesController < ApplicationController
     @expense_types = ExpenseType.new(expense_type_params)
     @expense_types.company = @company
     if @expense_types.save
-      redirect_to new_company_expense_path, notice: "Expense type was successfully created."
+      redirect_to @company, notice: "Expense type was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class ExpenseTypesController < ApplicationController
   # PATCH/PUT /expense_types/1
   def update
     if @expense_type.update(expense_type_params)
-      redirect_to @expense_type, notice: "Expense type was successfully updated."
+      redirect_to @expense_type.company_id, notice: "Expense type was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
