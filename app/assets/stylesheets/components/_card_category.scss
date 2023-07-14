@@ -13,6 +13,30 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card-category-index{
+  background-size: cover;
+  background-position: center;
+  height: 382px;
+  width: 546px;
+  display: flex;
+  margin-top: 81px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-top: 179px;
+  margin-left: 11px;
+
+  &:hover {
+    filter: brightness(90%);
+    transition: filter 0.3s ease;
+   }
+}
+
 .card-contenido {
   background-size: cover;
   background-position: center;
@@ -44,7 +68,7 @@
 .icono-chico{
   width: 70px;
   height: 70px;
-  background-color: rgb(70, 67, 67);
+  background-color:#37ab60;
   border-radius: 90%;
   display: flex;
   justify-content: center;

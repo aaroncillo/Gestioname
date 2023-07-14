@@ -31,12 +31,19 @@
                         <%= content_tag(:i, "", class: "fa-solid fa-house fa-3x") %>
                         <p class="fw-bold subtitulos">Home</p>
                       <% end %>
-                    </div>
-                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+
                       <%= link_to companies_path, class: "text-decoration-none" do %>
-                        <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x") %>
-                        <p class="fw-bold subtitulos">Companies</p>
+                        <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x mt-3") %>
+                        <p class="fw-bold subtitulos">My Companies</p>
                       <% end %>
+
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                    <%= link_to new_company_path(current_user), class: "text-decoration-none" do %>
+                      <%= content_tag(:i, "", class: "fa-solid fa-plus fa-3x") %>
+                        <p class="fw-bold subtitulos">Add New Company</p>
+                    <% end %>
+                    </div>
+
                     </div>
                     <div class="<%= 'd-none' unless controller_name == 'companies' && action_name == 'show' %>">
                       <div class="d-flex flex-column text-center mt-2 p-2 hover-effect" data-bs-toggle="modal" data-bs-target="#exampleModal7">
@@ -75,9 +82,9 @@
                         <% end %>
                       </a>
                         <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <%# <li><a class="dropdown-item" href="#">New project...</a></li> %>
+                            <%# <li><a class="dropdown-item" href="#">Settings</a></li> %>
+                            <li><a class="dropdown-item" href="#">My Profile</a></li>
                         </ul>
                     </div>
                   </div>
