@@ -20,5 +20,5 @@ class Expense < ApplicationRecord
   belongs_to :expense_type
 
   validates :item_name, :date, :description, :amount, :expense_type, presence: true
-  validates :expense_type, inclusion: { in: TYPES }
+  validates :expense_category, inclusion: { in: TYPES }
 end

@@ -1,4 +1,4 @@
-<div class="modal-dialog">
+<div class="modal-dialog" >
   <div class="modal-content">
     <div class="modal-header">
     <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">New Expense</h1>
@@ -10,25 +10,31 @@
               <%= f.input :description %>
               <%= f.input :date, order: [:day, :month, :year], html5:true %>
               <%= f.input :amount %>
+              <div id="expense_types">
               <%= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map { |et| [et.expense_category, et.id] } %>
-
+              </div>
                 <%#= f.association :expense %>
               <p>
                 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                   Add Expense Type
                 </a>
               </p>
-              <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                  <%= render "expense_types/new_modal_expense_type" %>
-                </div>
-              </div>
               <%= f.submit %>
             <% end %>
+            <div >
+              <%= simple_form_for [@company, @expense_types],  html: { id: "company-form" }  do |h| %>
+              <%= h.input :expense_category, placeholder: 'Categoria' %>
+              <div class="text-center">
+                <%= h.submit "crear expensa categoria", class: 'btn btn-success'%>
+              </div>
+              <% end %>
+            </div>
+
           </div>
         <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       <button type="button" class="btn btn-primary">Save changes</button>
     </div>
   </div>
+
 </div>

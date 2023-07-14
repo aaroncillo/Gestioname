@@ -22,7 +22,10 @@ class ExpenseTypesController < ApplicationController
     @expense_types = ExpenseType.new(expense_type_params)
     @expense_types.company = @company
     if @expense_types.save
-      redirect_to @company, notice: "Expense type was successfully created."
+      respond_to do |format|
+        format.html { redirect_to @company }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end

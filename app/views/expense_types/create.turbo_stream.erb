@@ -1,0 +1,1 @@
+<%= turbo_stream.replace 'expense_types', partial: 'expense_types_parcial', locals: { list_expense_type: ExpenseType.where(company_id: @company.id).map { |et| [et.expense_category, et.id] } } %>

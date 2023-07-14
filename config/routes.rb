@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :incomes, except: %i[index new create]
   resources :expenses, except: %i[index new create]
 
-  resources :expense_types, except: %i[destroy index]
+  resources :expense_types, except: %i[destroy index new create]
 
   resources :users, only: %i[index show] do
     get "/subscriptions", to: "users#subscriptions", as: :subscriptions

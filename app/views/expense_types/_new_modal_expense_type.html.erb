@@ -1,14 +1,8 @@
-<%= simple_form_for [@company, @expense_types], remote: true do |f| %>
-  <%= f.input :expense_category, placeholder: 'Categoria' %>
+<%= simple_form_for [@company, @expense_types], url:company_expense_types_path(@company), local: true do |h| %>
+  <%= h.input :expense_category, placeholder: 'Categoria' %>
   <div class="text-center">
-    <%= f.submit class: 'btn btn-success'%>
+    <%= h.submit "crear expensa categoria", class: 'btn btn-success'%>
   </div>
 <% end %>
 
 
-<%# <script>
-  $(document).on('submit', 'form', function(event) {
-  event.preventDefault();
-
-});
-</script> %>

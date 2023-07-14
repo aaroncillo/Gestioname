@@ -1,0 +1,7 @@
+<div id="expense_types">
+  <select name="expense[expense_type_id]">
+  <% list_expense_type.each do |expense_type| %>
+    <option value="<%= expense_type[1]%>"><%= expense_type[0] %></option>
+  <% end %>
+</select>
+</div>
