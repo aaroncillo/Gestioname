@@ -56,14 +56,11 @@
   height: 70px;
   background-color: rgb(70, 67, 67);
   border-radius: 90%;
-  display: flex;
-  margin-left: 18px;
+  margin: 0 auto;
 }
 
 .font-awesome-icon {
-  margin-top: 20px;
-  margin-left: 16px;
-
+  padding-top: 20px;
 
 }
 
@@ -88,8 +85,10 @@
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 
+
   img {
     width: 200px;
+    border-bottom: 1px solid white;
   }
 
   h1 {
@@ -99,6 +98,7 @@
     letter-spacing: 3px;
     font-size: 50px;
     margin-top: -64px;
+
   }
   h2 {
     font-family: 'Anton', sans-serif;
@@ -106,8 +106,8 @@
     word-spacing: 3px;
     letter-spacing: 3px;
     margin-bottom: 29px;
-
   }
+
   ul li {
     list-style: none;
     font-family:'Roboto Mono', monospace;
