@@ -1,8 +1,10 @@
 .card-category{
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 382px;
+  width: 546px;
   display: flex;
+  margin-top: 81px;
   justify-content: center;
   align-items: center;
   color: white;
@@ -11,6 +13,12 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding-top: 179px;
+
+  &:hover {
+    filter: brightness(90%);
+    transition: filter 0.3s ease;
+   }
 }
 
 .card-contenido {
