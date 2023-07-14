@@ -1,7 +1,7 @@
 .card-category-banner {
   background-color: black;
-  height: 310px;
-  width: 330px;
+  height: 550px;
+  width: 418px;
   text-align: center;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
@@ -9,7 +9,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   border: 1px solid black;
   p {
-    padding-top: 30px ;
+    padding-top: -92px ;
 
   }
   img {
@@ -42,13 +42,27 @@
   h5 {
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 18px;
-    }
+  }
+
   &:hover {
     filter: brightness(90%);
     transition: filter 0.3s ease;
    }
 }
 
+
+.icono-chico2 {
+  width: 70px;
+  height: 70px;
+  background-color: rgb(70, 67, 67);
+  border-radius: 90%;
+  margin: 0 auto;
+}
+
+.font-awesome-icon {
+  padding-top: 20px;
+
+}
 
 .card-category-how-it-works {
   padding: 56px;
@@ -61,32 +75,52 @@
 }
 
 .card-category-subscription {
-
-
-
-  background:radial-gradient(circle, #37ab60, #62cf97);
-  height: 473px;
-  width: 300px;
+  background-color: #37ab60;
+  height: 600px;
+  width: 393px;
   margin-left: 54px;
   text-align: center;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 
+
   img {
     width: 200px;
+    border-bottom: 1px solid white;
   }
 
-  h2 {
+  h1 {
     font-family: 'Anton', sans-serif;
-    color: black;
+    color: rgb(26, 26, 29);
     word-spacing: 3px;
     letter-spacing: 3px;
-    font-size: 20px;
-
+    font-size: 50px;
+    margin-top: -64px;
 
   }
+  h2 {
+    font-family: 'Anton', sans-serif;
+    color: rgb(253, 253, 255);
+    word-spacing: 3px;
+    letter-spacing: 3px;
+    margin-bottom: 29px;
+  }
+
+  ul li {
+    list-style: none;
+    font-family:'Roboto Mono', monospace;
+    font-size: 21px;
+    color: rgb(253, 253, 255);
+    padding-bottom: 20px;
+    margin-left: -15px;
+
+  }
+
+
+
+
 }
 
 

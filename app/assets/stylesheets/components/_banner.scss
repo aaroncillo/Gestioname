@@ -63,7 +63,7 @@ img {
 .banner-how-it-works {
   background-color: #f7f9f9;
   padding: 100px 0;
-  margin-top: -66px;
+  margin-top: -103px;
   margin-bottom: 63px;
   border-radius: 20px;
   }
@@ -75,7 +75,7 @@ img {
   word-spacing: 3px;
   letter-spacing: 1px;
   font-size: 53px;
-  font-weight: bold;
+
   text-align: center;
   // margin-top: -33px;
   // margin-left: 94px;
@@ -90,12 +90,25 @@ img {
   text-align: center;
 }
 
-.banner-subscription {
+.banner-subscription-class {
   background-color: #f7f9f9;
   background-size: cover;
-  padding: 150px 0;
-  height: 876px;
-  margin-bottom: 319px;
-  border-radius: 20px;
-  margin-top: 45px;
+  padding-bottom: 150px;
+
+  h3 {
+    padding: 91px 0;
+    font-family: 'Anton', sans-serif;
+    color: black;
+    word-spacing: 3px;
+    letter-spacing: 3px;
+    font-size: 50px;
+  }
+}
+
+#See-our-plans{
+font-family: 'Anton', sans-serif;
+color: black;
+word-spacing: 3px;
+letter-spacing: 3px;
+
 }
