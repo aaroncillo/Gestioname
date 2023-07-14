@@ -26,11 +26,13 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.company_id = @company.id
     if @expense.save
-      redirect_to @company, notice: "expense was successfully created."
+      redirect_to @company, notice: "Expense was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
   end
+
+
 
   # PATCH/PUT /expense/1
   def update
@@ -53,7 +55,7 @@ class ExpensesController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def expense_params
-      params.require(:expense).permit(:item_name, :date, :description, :amount, :expense_type_id)
+      params.require(:expense).permit(:item_name, :description, :date, :amount, :expense_type_id)
     end
 
     def set_company_user
