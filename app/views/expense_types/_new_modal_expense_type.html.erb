@@ -1,8 +1,8 @@
-<%= simple_form_for [@company, @expense_types] do |f| %>
-          <span class="signup mt-3">Company</span>
-            <%= f.input :expense_category, placeholder: 'Categoria' %>
-            <div class="text-center">
-              <%= link_to "Back", company_path, class:"btn btn-primary" %>
-              <%= f.submit class: 'btn btn-success'%>
-            </div>
+<%= simple_form_for [@company, @expense_types], url:company_expense_types_path(@company), local: true do |h| %>
+  <%= h.input :expense_category, placeholder: 'Categoria' %>
+  <div class="text-center">
+    <%= h.submit "crear expensa categoria", class: 'btn btn-success'%>
+  </div>
 <% end %>
+
+

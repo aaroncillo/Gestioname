@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies
   def index
+
   end
 
   # GET /companies/1
@@ -14,7 +15,7 @@ class CompaniesController < ApplicationController
     @incomes = Income.joins(:company).where(company_id: params[:id])
     @expenses = Expense.joins(:company).where(company_id: params[:id])
     @registers = @incomes + @expenses
-
+    
     @total_amount = 0
     @incomes_amount = 0
     @expense_amount = 0
@@ -100,6 +101,7 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
+
 
   # Only allow a list of trusted parameters through.
   def company_params

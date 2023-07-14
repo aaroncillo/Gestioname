@@ -33,7 +33,7 @@ class IncomesController < ApplicationController
 
   def update
     if @income.update(income_params)
-      redirect_to @income, notice: "income was successfully updated."
+      redirect_to @income.company_id, notice: "income was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class IncomesController < ApplicationController
   def destroy
     @income = Income.find(params[:id])
     @income.destroy
-    redirect_to company_incomes_path(@income.company_id), notice: "income was successfully destroyed.", status: :see_other
+    redirect_to @income.company_id, notice: "income was successfully destroyed.", status: :see_other
   end
   private
       # Use callbacks to share common setup or constraints between actions.
