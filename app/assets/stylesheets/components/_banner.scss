@@ -18,10 +18,12 @@
   word-spacing: 3px;
   letter-spacing: 3px;
   text-align: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .highlight {
   color: #ffd310;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 .banner h3{
   text-align: center;
@@ -50,13 +52,13 @@ img {
   background-position: top;
   padding: 150px 50px;
   margin-top: 53px;
-  margin-bottom: 103px;
+  margin-bottom: -33px;
 
 }
 
 .why-choose-text h1 {
   font-family: 'Anton', sans-serif;
-  color: black;
+  color:rgb(19, 26, 42);;
   word-spacing: 3px;
   letter-spacing: 3px;
   margin-left: 89px;
@@ -69,6 +71,8 @@ img {
   margin-top: -103px;
   margin-bottom: 63px;
   border-radius: 20px;
+  margin-bottom: -3px;
+  border-bottom: 1px solid white;
   }
 
 .banner-how-it-works h1 {
@@ -94,17 +98,19 @@ img {
 }
 
 .banner-subscription-class {
-  background-color: #f7f9f9;
+  // background-color: #f7f9f9;
+  background-color: #ffd310;
   background-size: cover;
   padding-bottom: 150px;
 
   h3 {
     padding: 91px 0;
     font-family: 'Anton', sans-serif;
-    color: black;
+    color: rgb(255, 255, 255);
     word-spacing: 3px;
     letter-spacing: 3px;
     font-size: 50px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   }
 }
 
