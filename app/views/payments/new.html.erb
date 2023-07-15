@@ -101,12 +101,21 @@
     </div>
     <%= simple_form_for @payment, url:payments_path do |f| %>
 
+
+    <div class="">
+      <p><%= params[:subscription] %></p>
+      <%= f.input :amount, input_html:{value:params[:amount]} %>
+    </div>
+
+     <div class="">
+      <%= f.input :subscription_id, label:false, input_html:{type:"hidden", value:Subscription.where(subscription_type:params[:subscription]).first.id} %>
+    </div>
+
     <div class="form-container">
         <div class="field-container">
             <label for="name">Name</label>
-            <input id="name" maxlength="20" type="text">
-            <%# <%= f.input :credit_card_number, as: :select, collection%>
-
+            <input id="name" name="payment[name]" maxlength="20" type="text">
+            
         </div>
         <div class="field-container">
             <label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
@@ -118,11 +127,11 @@
         </div>
         <div class="field-container">
             <label for="expirationdate">Expiration (mm/yy)</label>
-            <input id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
+            <input id="expirationdate" name="payment[expiration_date]" type="text" pattern="[0-9]*" inputmode="numeric">
         </div>
         <div class="field-container">
             <label for="securitycode">Security Code</label>
-            <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
+            <input id="securitycode" name="payment[security_code]"type="text" pattern="[0-9]*" inputmode="numeric">
         </div>
     </div>
       <%= f.submit "Pay" %>
