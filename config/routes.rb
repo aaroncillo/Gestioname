@@ -21,4 +21,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[index show] do
     get "/subscriptions", to: "users#subscriptions", as: :subscriptions
   end
+
+  resources :payments, only: %i[new create]
+
 end
