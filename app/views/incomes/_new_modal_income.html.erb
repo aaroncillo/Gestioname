@@ -10,7 +10,9 @@
               <%= f.input :description %>
               <%= f.input :date, order: [:day, :month, :year], html5:true %>
               <%= f.input :amount %>
-              <%= f.submit %>
+              <div class="text-center">
+                <%= f.submit %>
+              </div>
           <% end %>
         </div>
       <div class="modal-footer">

@@ -14,11 +14,8 @@
 #
 class Expense < ApplicationRecord
 
-  TYPES = ExpenseType.all
-
   belongs_to :company
   belongs_to :expense_type
 
   validates :item_name, :date, :description, :amount, :expense_type, presence: true
-  validates :expense_category, inclusion: { in: TYPES }
 end
