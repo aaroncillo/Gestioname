@@ -8,7 +8,7 @@
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
   border: 1px solid black;
-  
+
   p {
     padding-top: -92px ;
 
@@ -88,6 +88,10 @@
   // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  &:hover {
+    background-color: #1a8840;
+    transition: filter 0.4s ease;
+   }
 
 
   img {
