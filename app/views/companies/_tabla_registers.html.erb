@@ -5,7 +5,8 @@
         <th scope="col" class="filterable">Item Name</th>
         <th scope="col">Amount</th>
         <th scope="col">Date</th>
-        <th scope="col">Details</th>
+        <th scope="col">Descriptions</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -13,8 +14,12 @@
         <tr>
           <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
           <td>$ <%= register.amount %></td>
-          <td><%= register.date %></td>
-          <td><%= link_to '', expense_path(register), class: 'fa fa-info-circle' %></td>
+          <td><%= register.date.strftime('%m-%d-%Y')  %></td>
+          <td><%= register.description %></td>
+          <td>
+              <%= link_to 'Edit', company_expenses_path(register.company_id), class: 'btn btn-primary' %>
+              <%= link_to "Delete", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirmation: "Are you sure?" }%>
+          </td>
         </tr>
       <% end %>
     </tbody>
