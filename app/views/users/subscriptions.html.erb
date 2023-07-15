@@ -26,7 +26,7 @@
         <%= link_to "Subscribe", new_payment_path(subscription:"basic", amount:9), class: "btn btn-success btn-lg" %>
     </div>
 
-    <div class="card-category-subscription mt-5">
+    <div class="card-category-subscription mt-5 <%= 'blocked' if current_user.subscription.subscription_type == "premium" %>">
         <div>
           <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubsPremium_czc4cz.png" alt="premium-panda">
           <h1>Premium </h1>
@@ -36,7 +36,16 @@
             <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to all the graphs</li>
             <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
         </div>
-          <%= link_to "Subscribe",new_payment_path(subscription:"premium", amount:12), class: "btn btn-success btn-lg" %>
+
+          <%= link_to "Subscribe",new_payment_path(subscription:"premium", amount:12), class: "btn btn-success btn-lg"%>
     </div>
   </div>
 </div>
+
+<style>
+.blocked {
+  pointer-events: none !important;
+  opacity: 0.7;
+
+}
+</style>

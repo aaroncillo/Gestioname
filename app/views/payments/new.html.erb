@@ -104,18 +104,18 @@
 
     <div class="">
       <p><%= params[:subscription] %></p>
-      <%= f.input :amount, input_html:{value:params[:amount]} %>
+      <%# <%= f.input :amount, input_html:{value:params[:amount]} %>
     </div>
 
      <div class="">
-      <%= f.input :subscription_id, label:false, input_html:{type:"hidden", value:Subscription.where(subscription_type:params[:subscription]).first.id} %>
+      <%= f.input :subscription_type, label:false, input_html:{type:"hidden", value: params[:subscription]} %>
     </div>
 
     <div class="form-container">
         <div class="field-container">
             <label for="name">Name</label>
             <input id="name" name="payment[name]" maxlength="20" type="text">
-            
+
         </div>
         <div class="field-container">
             <label for="cardnumber">Card Number</label><span id="generatecard">generate random</span>
@@ -136,6 +136,10 @@
     </div>
       <%= f.submit "Pay" %>
     <% end %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/3.4.0/imask.min.js"></script>
+
+
 <script>
 window.onload = function () {
 
