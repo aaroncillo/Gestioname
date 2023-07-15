@@ -71,22 +71,27 @@
                         <p class="fw-bold subtitulos">Settings</p>
                       <% end %>
                     </div>
-                    <div class="dropdown">
-                      <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <% if current_user.avatar.attached? %>
-                          <%= image_tag current_user.avatar, class:"avatar-large"%>
-                        <% else %>
-                          <%= image_tag "sinimagen.png", class:"avatar-large" %>
-                        <% end %>
-                      </a>
-                        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                    <%# <div class="dropdown"> %>
+                      <%# <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> %>
+                        <%# <% if current_user.avatar.attached? %>
+                          <%# <%= image_tag current_user.avatar, class:"avatar-large"%>
+                        <%# <% else %>
+                          <%# <%= image_tag "sinimagen.png", class:"avatar-large" %>
+                        <%# <% end %>
+                      <%# </a> %>
+                        <%# <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3"> %>
                             <%# <li><a class="dropdown-item" href="#">New project...</a></li> %>
                             <%# <li><a class="dropdown-item" href="#">Settings</a></li> %>
-                            <li><a class="dropdown-item" href="#">My Profile</a></li>
-                        </ul>
-                    </div>
+                            <%# <li><a class="dropdown-item" href="#">My Profile</a></li> %>
+                        <%# </ul> %>
+                    <%# </div> %>
                   </div>
+                    <div class="d-flex flex-column text-center mt-2 p-2 hover-effect text-decoration-none">
+                      <%= content_tag(:i, "", class:"fa-solid fa-globe fa-3x mb-2") %>
+                      <p class="fw-bold subtitulos ">Your plan is <%= current_user.subscription.subscription_type.capitalize %></p>
+                    </div>
               </div>
+
           </div>
         <!-- End of Sidebar -->
 
