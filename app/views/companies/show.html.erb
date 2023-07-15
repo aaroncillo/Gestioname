@@ -113,7 +113,7 @@
         <%= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name, :date).sum("amount"),
                  xtitle: "Item & Date", ytitle: "Amount",
                  library: {
-                   plotOptions: { column: { dataLabels: { enabled: true, format: "{point.name}" } } }
+                plotOptions: { column: { dataLabels: { enabled: true, format: "{point.name}" } } }
                  }, title: "Incomes" %>
       </div>
     </div>
@@ -144,7 +144,8 @@
   <h2 class="fw-bold mt-3">Recent</h2>
   <%= render  "tabla_registers"%>
 </div>
-<%= render "companies/import_form" %>
+
+<%#= render "companies/import_form" %>
 
 
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
