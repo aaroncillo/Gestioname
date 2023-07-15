@@ -11,10 +11,9 @@ User.destroy_all
 # Creacion de USUARIOS
 
 puts "Creando Usuario de Matias y Cecilia"
-usuario1 = User.create!(first_name: "Matias", last_name: "Avaca", email: "avaca.matias1@gmail.com", password: "123456", subscription: false)
-usuario2 = User.create!(first_name: "Cecilia", last_name: "Reynoso", email: "cecireynoso@gmail.com", password: "123456", subscription: true)
-usuario3 = User.create!(first_name: "Aaron", last_name: "Deik", email: "aarondeik@live.cl", password: "123456",
-subscription: true)
+usuario1 = User.create!(first_name: "Matias", last_name: "Avaca", email: "avaca.matias1@gmail.com", password: "123456")
+usuario2 = User.create!(first_name: "Cecilia", last_name: "Reynoso", email: "cecireynoso@gmail.com", password: "123456")
+usuario3 = User.create!(first_name: "Aaron", last_name: "Deik", email: "aarondeik@live.cl", password: "123456")
 
 # Creacion de EMPRESAS
 
