@@ -10,33 +10,39 @@
       </tr>
     </thead>
     <tbody>
-      <% @registers.reverse.each do |register| %>
-        <tr>
+      <% @incomes.reverse.each do |register| %>
+      <tr>
           <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
           <td>$ <%= register.amount %></td>
           <td><%= register.date.strftime('%m-%d-%Y')  %></td>
           <td><%= register.description %></td>
           <td>
-            <%= link_to 'Edit', company_expenses_path(register.company_id), class: 'btn btn-primary' %>
-            <% if register.class.to_s.include?('Expense') %>
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal8">
-                Delete
-              </button>
-            <% else %>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal9">
-                Delete
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modalincome<%=register.id%>">
+              Delete
             </button>
-            <% end %>
+             <div class="modal fade" id="Modalincome<%=register.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <%= render "incomes/edit_income", income:register %>
+              </div>
           </td>
         </tr>
       <% end %>
+
+      <% @expenses.reverse.each do |register| %>
+      <tr>
+          <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
+          <td>$ <%= register.amount %></td>
+          <td><%= register.date.strftime('%m-%d-%Y')  %></td>
+          <td><%= register.description %></td>
+          <td>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modalexpense<%=register.id%>">
+              Delete
+            </button>
+            <div class="modal fade" id="Modalexpense<%=register.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <%= render "expenses/edit_expense", expense:register %>
+              </div>
+          </td>
+      </tr>
+      <% end %>
     </tbody>
   </table>
-</div>
-
-<div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <%= render "expenses/edit_expense" %>
-</div>
-<div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <%= render "incomes/edit_income" %>
 </div>
