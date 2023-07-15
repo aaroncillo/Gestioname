@@ -1,6 +1,6 @@
 <div class="banner-subscription-class-dashboard" id="banner-subscription">
   <div class="d-flex justify-content-around">
-    <div class="card-category-subscription mt-5">
+    <div class="card-category-subscription mt-5 <%='blocked' if current_user.subscription.subscription_type == "trial"%>">
       <div class="justify-content-center align-items-center">
         <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubs_jk36za.png" alt="trial-panda">
         <h1>Free Trial </h1>
