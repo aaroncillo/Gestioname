@@ -22,7 +22,7 @@ class PaymentsController < ApplicationController
     # POST /payments
     def create
       @payment = Payment.new(payment_params)
-      @user = current_user.subscription
+      @payment.user = current_user.subscription
 
       if @payment.save
         redirect_to @payment, notice: "Payment was successfully created."
