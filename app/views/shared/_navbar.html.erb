@@ -13,7 +13,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active" class="font-color-name">
-          <p><%= current_user.first_name %><p>
+          <p>Hi,  <%= current_user.first_name %>!<p>
           </li>
           <li class="nav-item dropdown">
           <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +26,7 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Account", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Companies", companies_path, class: "dropdown-item" %>
+              <%= link_to " My Companies", companies_path, class: "dropdown-item" %>
               <% if user_signed_in? %>
               <% else %>
               <%= link_to "Sign in", "#", class: "dropdown-item" %>

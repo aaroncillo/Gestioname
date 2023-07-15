@@ -1,32 +1,17 @@
-
-<%= link_to "Create new company", new_company_path, class:"btn btn-success mb-3 mt-3" %>
-
 <div class="container">
-  <div class="class row">
+  <%= link_to "Create new company", new_company_path, class:"btn btn-success btn-lg mb-3 mt-5" %>
+   <div class="row">
     <% @companies.each do |company| %>
-      <div class="col-6 mb-3">
-              <% if company.logo.attached? %>
-                <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path company.logo.key %>)">
-              <% else %>
-                <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'sinimagen.png' %>)">
-              <% end %>
+      <% if company.logo.attached? %>
+        <div class="card-category-index position-relative mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path company.logo.key %>)">
+      <% else %>
+        <div class="card-category-index position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'sinimagen.png' %>)">
+        <% end %>
           <div class="row">
-            <div class="col-7">
-              <div class="icono-chico mb-3">
-                <i class="fa-solid fa-money-bill"></i>
-              </div>
-              <h5 class="text-body-tertiary"><%= link_to company.name_company,company_path(company) %></h5>
-                <h3 class="text-danger fw-bold"></h3>
-
-                <h3 class="text-success fw-bold"></h3>
-              <h4>Balances</h4>
-            </div>
-            <div class="col-5 d-flex align-items-center justify-content-center">
-              <h2>graph</h2>
+            <div>
+                <%= link_to company.name_company,company_path(company), class:"btn btn-warning" %>
             </div>
           </div>
-        </div>
       </div>
     <% end %>
-  </div>
 </div>
