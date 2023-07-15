@@ -1,118 +1,42 @@
-<div class="container">
-  <div class="row">
-    <div class="col-5">
-      <div class="d-flex flex-column centrado">
-        <h1>Payment Method</h1>
-        <hr style="border: 1px solid black;">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur rerum voluptates illo, quia, provident necessitatibus ipsum corporis quod distinctio quisquam deleniti quasi, earum repellat? Suscipit officia soluta qui maxime illum.</p>
-        <hr style="border: 1px solid black;">
-          <%= link_to "See Plans", "seePlansBtn", class:"btn btn-primary" %>
+<div class="banner-subscription-class-dashboard" id="banner-subscription">
+  <div class="d-flex justify-content-around">
+    <div class="card-category-subscription mt-5">
+      <div class="justify-content-center align-items-center">
+        <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubs_jk36za.png" alt="trial-panda">
+        <h1>Free Trial </h1>
+        <h2>30 days</h2>
+        <ul>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage unlimited companies</li>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access all graphs</li>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
+        </ul>
+          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
       </div>
     </div>
-    <div class="col-7">
-      <div class="info-pago imagen">
-        <%= image_tag("payment2.png", alt: "flor") %>
-      </div>
+
+    <div class="card-category-subscription mt-5 ">
+        <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubsBasic_e2wpbz.png" alt="basic-panda">
+          <h1>Basic </h1>
+          <h2>US$9/mo</h2>
+        <ul>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage just one company</li>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to limited graphs</li>
+          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
+        </ul>
+        <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
     </div>
-  </div>
-  <div class="tarjetero">
-    <div class="linea tarjetas-pago" id="trial">
-      <div class="row">
-        <div class="col-3">
-          <%= image_tag("pandaSubs.png", alt: "flor", class:"fotos-tarjetas") %>
+
+    <div class="card-category-subscription mt-5">
+        <div>
+          <img src="https://res.cloudinary.com/dfoznob7x/image/upload/v1689100556/pandaSubsPremium_czc4cz.png" alt="premium-panda">
+          <h1>Premium </h1>
+          <h2>US$12/mo</h2>
+          <ul>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage unlimited companies</li>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to all the graphs</li>
+            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
         </div>
-        <div class="col-3 align-self-center">
-            <div class="contenido-tarjetas">
-              <h1 class="titulos-tarjetas text-black fw-bold">Trial</h1>
-            </div>
-        </div>
-        <div class="col-3 align-self-center">
-            <ul class="contenido-tarjetas unordered-list">
-              <li>Full Access</li>
-              <li>Extra Graphs</li>
-              <li>Multiple Companies</li>
-              <li>Just For Two Weeks</li>
-            </ul>
-        </div>
-        <div class="col-3 align-self-end">
-          <p class="price d-flex flex-column">
-            <span>Price: Free</span>
-            <span class="text-secondary tmño">PER 2 WEEKS</span>
-            <%= link_to "Get Now!", "/", class:"btn btn-danger botones-get" %>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="linea tarjetas-pago" id="trial2">
-      <div class="row">
-        <div class="col-3">
-          <%= image_tag("pandaSubsBasic.png", alt: "flor", class:"fotos-tarjetas") %>
-        </div>
-        <div class="col-3 align-self-center">
-            <div class="contenido-tarjetas">
-              <h1 class="titulos-tarjetas text-black fw-bold">Basic</h1>
-            </div>
-        </div>
-        <div class="col-3 align-self-center">
-            <ul class="contenido-tarjetas unordered-list">
-              <li>Restricted Access</li>
-              <li>No Graph</li>
-              <li>Just One Company</li>
-            </ul>
-        </div>
-        <div class="col-3 align-self-end">
-          <p class="price d-flex flex-column">
-            <span>Price: Free</span>
-            <%= link_to "Get Now!", "/", class:"btn btn-danger botones-get" %>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="linea tarjetas-pago mb-5" id="trial3">
-      <div class="row">
-        <div class="col-3">
-          <%= image_tag("pandaSubsPremium.png", alt: "flor", class:"fotos-tarjetas") %>
-        </div>
-        <div class="col-3 align-self-center">
-            <div class="contenido-tarjetas">
-              <h1 class="titulos-tarjetas text-black fw-bold">Premium</h1>
-            </div>
-        </div>
-        <div class="col-3 align-self-center">
-            <ul class="contenido-tarjetas unordered-list">
-              <li>Full Access</li>
-              <li>Extra Graphs</li>
-              <li>Infinite Companies</li>
-            </ul>
-        </div>
-        <div class="col-3 align-self-end">
-          <p class="price d-flex flex-column">
-            <span>Price: $15</span>
-            <span class="text-secondary tmño">PER MONTH</span>
-            <%= link_to "Get Now!", "/", class:"btn btn-danger botones-get" %>
-          </p>
-        </div>
-      </div>
+          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
     </div>
   </div>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var seePlansBtn = document.querySelector('.btn-primary');
-    var tarjetasPago = document.querySelectorAll('.tarjetero');
-
-    seePlansBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-
-      // Obtener la posición del contenedor de las tarjetas de pago
-      var tarjetasOffset = document.getElementById('trial').offsetTop;
-
-      // Hacer scroll hacia la posición del contenedor
-      window.scrollTo({
-        top: tarjetasOffset,
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
