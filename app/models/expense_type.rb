@@ -10,7 +10,7 @@
 class ExpenseType < ApplicationRecord
 
   belongs_to :company
-  has_many :expenses
+  has_many :expenses, dependent: :destroy
   validates :expense_category, presence: true
   validates :expense_category, length: { maximum: 20 }
 

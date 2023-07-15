@@ -1,6 +1,7 @@
+
 <%= simple_form_for [@company] do |f| %>
-          <%= f.input :name_company, placeholder: 'Nombre de la compañía'  %>
-          <%= f.input :description, placeholder: 'Descripcion' %>
+          <%= f.input :name_company, placeholder: 'Company Name'  %>
+          <%= f.input :description, placeholder: 'Description' %>
           <%= f.input :logo, as: :file, class:'form-control', class:"p-4" %>
           <div class="text-center">
             <%= link_to "Back To Companies", companies_path, class:"btn btn-primary mb-3 mt-3" %>
