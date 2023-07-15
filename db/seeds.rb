@@ -26,18 +26,18 @@ compañia3_aaron = Company.create!(user_id: usuario3.id, name_company: "La cerve
 # Creacion Subscription Cecilia, Matias no Tiene
 
 puts "Creando Subscripcion de Cecilia"
-subscription_ceci = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50, subscription_type: "premium")
+subscription_ceci = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 12, subscription_type: "premium")
 
-subscription_mati = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50,
+subscription_mati = Subscription.create!(user_id: usuario1.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 9,
 subscription_type: "basic")
 
-subscription_aaron = Subscription.create!(user_id: usuario2.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 50,
+subscription_aaron = Subscription.create!(user_id: usuario3.id, init_date: "2023-3-18", end_date: "2024-3-18", price_sub: 0,
 subscription_type: "trial")
 # Creacion del Metodo de Pago de Cecilia
 
 puts "Creando metodo de pago de Cecilia"
-payment_ceci = Payment.create!(subscription_id: subscription_ceci.id, payment_method: "Paypal")
-payment_mati = Payment.create!(subscription_id: subscription_mati.id, payment_method: "Paypal")
+# payment_ceci = Payment.create!(subscription_id: subscription_ceci.id, payment_method: "Paypal")
+# payment_mati = Payment.create!(subscription_id: subscription_mati.id, payment_method: "Paypal")
 
 
 

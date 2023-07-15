@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   has_many :companies, dependent: :destroy
   has_one :subscription
+  has_many :payments  
 
   # Validaciones.
 

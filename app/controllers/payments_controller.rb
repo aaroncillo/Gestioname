@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-  class PaymentsController < ApplicationController
     before_action :set_payment, only: %i[ show edit update destroy ]
 
     # GET /payments
@@ -14,6 +13,7 @@ class PaymentsController < ApplicationController
     # GET /payments/new
     def new
       @payment = Payment.new
+      @sidebar = false
     end
 
     # GET /payments/1/edit
@@ -23,9 +23,27 @@ class PaymentsController < ApplicationController
     # POST /payments
     def create
       @payment = Payment.new(payment_params)
+      @payment.user = current_user
+      new_sub =Subscription.find(@payment.user.subscription.id)
+      new_sub.subscription_type= params[:payment][:subscription_type]
+      new_sub.init_date=Date.today
+      new_sub.end_date=Date.today+30
+      new_sub.user_id=current_user.id
+      if params[:payment][:subscription_type]== "basic"
+        new_sub.price_sub= 9
+      new_sub.subscription_type = "basic"
+      elsif params[:payment][:subscription_type]== "premium"
+        new_sub.price_sub= 12
+        new_sub.subscription_type = "premium"
+      else
+        new_sub.price_sub= 0
+        new_sub.subscription_type = "trial"
+      end
+       @payment.subscription = new_sub
 
-      if @payment.save
-        redirect_to @payment, notice: "Payment was successfully created."
+
+      if new_sub.save && @payment.save
+        redirect_to companies_path, notice: "Payment was successfully created."
       else
         render :new, status: :unprocessable_entity
       end
@@ -54,7 +72,6 @@ class PaymentsController < ApplicationController
 
       # solo deja pasar ciertos atributos
       def payment_params
-        params.require(:payment).permit(:subscription_id, :payment_date, :amount, :status)
+        params.require(:payment).permit(:subscription_id, :credit_card_number, :expiration_date, :name, :security_code, :subscription_type)
       end
-  end
 end

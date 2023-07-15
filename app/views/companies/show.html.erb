@@ -102,19 +102,36 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <div class="card-contenido">
-        <%= column_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Expenses" %>
-        <%= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Incomes" %>
+        <%#= column_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Expenses" %>
+        <%= column_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name, :date).sum("amount"),
+          xtitle: "Item & Date", ytitle: "Amount",
+          library: {
+            plotOptions: { column: { dataLabels: { enabled: true, format: "{point.name}" } } }
+          }, title: "Expenses" %>
+        <hr class="vertical-line">
+        <%#= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Incomes" %>
+        <%= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name, :date).sum("amount"),
+                 xtitle: "Item & Date", ytitle: "Amount",
+                 library: {
+                plotOptions: { column: { dataLabels: { enabled: true, format: "{point.name}" } } }
+                 }, title: "Incomes" %>
       </div>
     </div>
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <div class="card-contenido">
-        <%= area_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Expenses" %>
-        <%= area_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Incomes" %>
+        <%#= line_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Expenses" %>
+        <%= line_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"),
+        xtitle: "Item", ytitle: "Amount", title: "Expenses" %>
+        <hr class="vertical-line">
+        <%#= area_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Incomes" %>
+        <%= line_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"),
+        xtitle: "Item", ytitle: "Amount", title: "Incomes" %>
       </div>
     </div>
     <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
       <div class="card-contenido">
           <%= pie_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true, title: "Expenses" %>
+          <hr class="vertical-line">
           <%= pie_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true, title: "Incomes" %>
       </div>
     </div>
