@@ -46,7 +46,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense = Expense.find(params[:id])
     @expense.destroy
-    redirect_to @expense.company_id, notice: "expense was successfully destroyed.", status: :see_other
+    redirect_to company_path, notice: "expense was successfully destroyed.", status: :see_other
   end
   private
     # Use callbacks to share common setup or constraints between actions.
