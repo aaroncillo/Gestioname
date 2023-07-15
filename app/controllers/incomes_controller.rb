@@ -43,7 +43,7 @@ class IncomesController < ApplicationController
   def destroy
     @income = Income.find(params[:id])
     @income.destroy
-    redirect_to @income.company_id, notice: "income was successfully destroyed.", status: :see_other
+    redirect_to company_path, notice: "income was successfully destroyed.", status: :see_other
   end
   private
       # Use callbacks to share common setup or constraints between actions.

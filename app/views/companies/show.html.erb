@@ -102,20 +102,20 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
       <div class="card-contenido">
-        <%= column_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
-        <%= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
+        <%= column_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Expenses" %>
+        <%= column_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Incomes" %>
       </div>
     </div>
     <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <div class="card-contenido">
-        <%= area_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
-        <%= area_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount") %>
+        <%= area_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Expenses" %>
+        <%= area_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), title: "Incomes" %>
       </div>
     </div>
     <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
       <div class="card-contenido">
-          <%= pie_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true %>
-          <%= pie_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true %>
+          <%= pie_chart Expense.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true, title: "Expenses" %>
+          <%= pie_chart Income.joins(:company).where(company_id: params[:id]).group(:item_name).sum("amount"), donut: true, title: "Incomes" %>
       </div>
     </div>
   </div>
