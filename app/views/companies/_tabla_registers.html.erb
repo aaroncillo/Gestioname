@@ -17,11 +17,26 @@
           <td><%= register.date.strftime('%m-%d-%Y')  %></td>
           <td><%= register.description %></td>
           <td>
-              <%= link_to 'Edit', company_expenses_path(register.company_id), class: 'btn btn-primary' %>
-              <%= link_to "Delete", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirmation: "Are you sure?" }%>
+            <%= link_to 'Edit', company_expenses_path(register.company_id), class: 'btn btn-primary' %>
+            <% if register.class.to_s.include?('Expense') %>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal8">
+                Delete
+              </button>
+            <% else %>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal9">
+                Delete
+            </button>
+            <% end %>
           </td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
+
+<div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <%= render "expenses/edit_expense" %>
+</div>
+<div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <%= render "incomes/edit_income" %>
 </div>
