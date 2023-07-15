@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-  class PaymentsController < ApplicationController
     before_action :set_payment, only: %i[ show edit update destroy ]
 
     # GET /payments
@@ -22,6 +21,7 @@ class PaymentsController < ApplicationController
 
     # POST /payments
     def create
+     
       @payment = Payment.new(payment_params)
 
       if @payment.save
@@ -56,5 +56,4 @@ class PaymentsController < ApplicationController
       def payment_params
         params.require(:payment).permit(:subscription_id, :payment_date, :amount, :status)
       end
-  end
 end
