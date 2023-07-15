@@ -1,5 +1,5 @@
 
-<div class="modal-dialog">
+<div class="modal-dialog modal-xl">
   <div class="modal-content">
     <div class="modal-header">
       <h1 class="modal-title text-dark fs-5" id="exampleModalLabel">Expenses</h1>
@@ -13,17 +13,20 @@
                     <th scope="col" class="filterable">Item Name</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Details</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <% @expenses.reverse.each do |register| %>
+                  <% @expenses.sort_by(&:date).reverse.each do |register| %>
                   <tr>
                     <td class="filterable" data-search="<%= register.item_name %>"><%= register.item_name %></td>
                     <td>$ <%= register.amount %></td>
-                    <td><%= register.date %></td>
-                    <td><%= link_to '', expense_path(register), class: 'fa fa-info-circle' %>
-                    <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="<table><tr><td>Ejemplo</td></tr></table>" id="popover-btn">Details</button>
+                    <td><%= register.date.strftime('%m-%d-%Y')  %></td>
+                    <td><%= register.description %></td>
+                    <td>
+                      <%= link_to 'Edit', company_expenses_path(register.company_id), class: 'btn btn-primary' %>
+                      <%= link_to 'Delete', company_path(register.company_id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
                     </td>
                   </tr>
                 <% end %>
