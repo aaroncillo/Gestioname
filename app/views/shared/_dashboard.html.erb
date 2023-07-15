@@ -22,6 +22,10 @@
 <body id="page-top">
     <div id="wrapper">
           <div class="row">
+            <% if @sidebar==false%>
+
+              <% else %>
+
               <div class="col-sm-auto sticky-top barra">
                   <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top barra">
                     <div class="d-flex flex-column text-center hover-effect">
@@ -91,7 +95,7 @@
                       <p class="fw-bold subtitulos ">Your plan is <%= current_user.subscription.subscription_type.capitalize %></p>
                     </div>
               </div>
-
+            <% end %>
           </div>
         <!-- End of Sidebar -->
 

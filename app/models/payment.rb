@@ -10,8 +10,7 @@
 #
 class Payment < ApplicationRecord
   belongs_to :subscription
+  belongs_to :user
 
-  # validaciones
 
-  validates :payment_method, presence: true
 end
