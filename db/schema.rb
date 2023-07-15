@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_15_155209) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_15_162433) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,7 +96,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_15_155209) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "payment_method"
+    t.bigint "user_id"
+    t.integer "credit_card_number"
+    t.string "name"
+    t.integer "security_code"
+    t.string "expiration_date"
     t.index ["subscription_id"], name: "index_payments_on_subscription_id"
+    t.index ["user_id"], name: "index_payments_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -132,5 +138,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_15_155209) do
   add_foreign_key "expenses", "expense_types"
   add_foreign_key "incomes", "companies"
   add_foreign_key "payments", "subscriptions"
+  add_foreign_key "payments", "users"
   add_foreign_key "subscriptions", "users"
 end
