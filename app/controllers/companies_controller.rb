@@ -15,7 +15,6 @@ class CompaniesController < ApplicationController
     @incomes = Income.joins(:company).where(company_id: params[:id])
     @expenses = Expense.joins(:company).where(company_id: params[:id])
     @registers = @incomes + @expenses
-    
     @total_amount = 0
     @incomes_amount = 0
     @expense_amount = 0

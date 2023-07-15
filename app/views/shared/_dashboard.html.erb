@@ -20,9 +20,7 @@
 </head>
 
 <body id="page-top">
-    <!-- Page Wrapper -->
     <div id="wrapper">
-        <!-- Sidebar -->
           <div class="row">
               <div class="col-sm-auto sticky-top barra">
                   <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top barra">
@@ -43,22 +41,22 @@
                         <p class="fw-bold subtitulos">Add New Company</p>
                     <% end %>
                     </div>
-
-                    </div>
                     <div class="<%= 'd-none' unless controller_name == 'companies' && action_name == 'show' %>">
-                      <div class="d-flex flex-column text-center mt-2 p-2 hover-effect" data-bs-toggle="modal" data-bs-target="#exampleModal7">
-                        <%= link_to "", class: "text-decoration-none" do %>
-                          <%= content_tag(:i, "", class: "fa-solid fa-money-bill fa-3x") %>
-                          <p class="fw-bold subtitulos">Incomes</p>
-                        <% end %>
+                        <div class="d-flex flex-column text-center mt-2 p-2">
+                          <button type="button" class=" text-decoration-none border-0" style="background-color: #4A4A4A" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                          <i class="fa-solid fa-money-bill fa-3x" id="buttons-i"></i>
+                            <p class="fw-bold subtitulos">Incomes</p>
+                          </button>
+                        </div>
                       </div>
                     </div>
+
                     <div class="<%= 'd-none' unless controller_name == 'companies' && action_name == 'show' %>">
                       <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-                        <%= link_to companies_path, class: "text-decoration-none" do %>
-                          <%= content_tag(:i, "", class: "fa-solid fa-right-from-bracket fa-3x") %>
-                          <p class="fw-bold subtitulos">Expenses</p>
-                        <% end %>
+                         <button type="button" class=" text-decoration-none border-0" style="background-color: #4A4A4A" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                          <i class="fa-solid fa-right-from-bracket fa-3x" id="buttons-i"></i>
+                            <p class="fw-bold subtitulos">Expenses</p>
+                          </button>
                       </div>
                     </div>
                     <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
