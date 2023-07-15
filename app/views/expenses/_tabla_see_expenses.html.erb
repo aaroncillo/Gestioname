@@ -23,7 +23,7 @@
                     <td>$ <%= register.amount %></td>
                     <td><%= register.date %></td>
                     <td><%= link_to '', expense_path(register), class: 'fa fa-info-circle' %>
-                    <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="" id="popover-btn">Details</button>
+                    <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="<table><tr><td>Ejemplo</td></tr></table>" id="popover-btn">Details</button>
                     </td>
                   </tr>
                 <% end %>
@@ -37,3 +37,4 @@
     </div>
   </div>
 </div>
+
