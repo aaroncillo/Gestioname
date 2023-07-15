@@ -24,8 +24,11 @@
                     <td>$ <%= register.amount %></td>
                     <td><%= register.date.strftime('%m-%d-%Y')  %></td>
                     <td><%= register.description %></td>
-                    <td>
-                      <%= link_to "Delete", company_income_path(register.company_id, register.id) , class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
+                    <td style="text-align: center;">
+                      <%#= link_to "Delete", company_expense_path(register.company_id, register.id) , class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
+                      <%= link_to company_income_path(register.company_id, register.id), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                        <i class="fas fa-trash"></i>
+                      <% end %>
                     </td>
                   </tr>
                 <% end %>

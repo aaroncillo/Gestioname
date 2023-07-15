@@ -1,9 +1,9 @@
 <div class="modal-dialog" >
   <div class="modal-content">
     <div class="modal-header">
-    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">New Expense</h1>
+      <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel1">New Expense</h1>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+    </div>
           <div class="modal-body text-dark">
             <%= simple_form_for [@company, @expense] do |f| %>
               <%= f.input :item_name %>
@@ -11,29 +11,27 @@
               <%= f.input :date, order: [:day, :month, :year], html5:true %>
               <%= f.input :amount %>
               <div id="expense_types" class="pb-3">
-              <%= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map { |et| [et.expense_category, et.id] } %>
+                <%= f.select :expense_type_id, ExpenseType.where(company_id: @company.id).map { |et| [et.expense_category, et.id] }, class: %>
               </div>
                 <%#= f.association :expense %>
                 <div class="pb-3 text-center">
-                  <%= f.submit%>
+                  <%= f.submit class: 'btn btn-primary' %>
                 </div>
             <% end %>
             <p>
                 <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                  Add Expense Type
+                  Add Category
                 </a>
               </p>
             <div class="collapse" id="collapseExample">
               <%= simple_form_for [@company, @expense_types],  html: { id: "company-form" }  do |h| %>
-              <%= h.input :expense_category, placeholder: 'Categoria' %>
+              <%= h.input :expense_category, placeholder: 'Category' %>
               <div class="text-center">
-                <%= h.submit "crear expensa categoria", class: 'btn btn-success'%>
+                <%= h.submit "New Category", class: 'btn btn-success'%>
               </div>
               <% end %>
             </div>
-
           </div>
-        <div class="modal-footer">
-    </div>
+      <div class="modal-footer"></div>
   </div>
 </div>
