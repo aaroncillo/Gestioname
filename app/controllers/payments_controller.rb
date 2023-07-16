@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
     def create
       @payment = Payment.new(payment_params)
       @payment.user = current_user
-      new_sub =Subscription.find(@payment.user.subscription.id)
+      new_sub= Subscription.find(@payment.user.subscription.id)
       new_sub.subscription_type= params[:payment][:subscription_type]
       new_sub.init_date=Date.today
       new_sub.end_date=Date.today+30
