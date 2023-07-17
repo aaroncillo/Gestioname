@@ -1,6 +1,6 @@
 <div class="container w-100" id="<%= dom_id company %>">
 
-  <h1 class="fw-bold"><%= company.name_company %></h1>
+  <h1 class="font-title-dashboard2 fw-bold"><%= company.name_company %></h1>
     <%#= link_to "Edit company", edit_company_path(@company), class:"btn btn-primary" %>
     <!-- Button trigger modal -->
   <div class="d-flex justify-content-between">
@@ -11,9 +11,9 @@
       <%= link_to "Delete this company", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
     </div>
   </div>
-  <hr style="border: 2px solid black;">
+  <hr style="border: 1px solid grey;">
   <div class="text-center">
-    <h3><%= company.description %></h2>
+    <h3 class="font-title-dashboard3">"<%=company.description%>."</h2>
   </div>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
