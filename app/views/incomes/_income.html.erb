@@ -1,12 +1,21 @@
 <div id="<%= dom_id income %>">
+  <%= simple_form_for income, url: income_path(income), method: :patch do |form| %>
   <p>
-    <strong>Name:</strong>
-    <%= income.item_name %>
+    <%= form.input :item_name %>
   </p>
-
   <p>
-    <strong>Description:</strong>
-    <%= income.description %>
+    <%= form.input :description %>
   </p>
-
+  <p>
+    <%= form.input :amount %>
+  </p>
+  <div class="modal-footer">
+      <%= button_tag type: 'submit', class: 'btn btn-primary btn-icon' do %>
+        <i class="fa-regular fa-floppy-disk"></i>
+      <% end %>
+      <%= link_to income, class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+  </div>
+  <% end %>
 </div>

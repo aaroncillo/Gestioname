@@ -7,9 +7,7 @@
           <div class="modal-body text-dark">
             <%= render "incomes/income", income: income%>
           </div>
-
         <div class="modal-footer">
-        <%= link_to "Delete this income", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
     </div>
   </div>
 </div>

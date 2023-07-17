@@ -1,14 +1,12 @@
 <div class="modal-dialog" >
   <div class="modal-content">
     <div class="modal-header">
-    <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Expense</h1>
+      <h1 class="modal-title fs-5 text-dark" id="exampleModalLabel">Expense</h1>
       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-          <div class="modal-body text-dark">
-            <%= render "expenses/expense", expense:expense%>
-          </div>
-        <div class="modal-footer">
-        <%= link_to "Delete this expense", company_path, class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
     </div>
+    <div class="modal-body text-dark">
+        <%= render "expenses/expense", expense:expense%>
+    </div>
+
   </div>
 </div>
