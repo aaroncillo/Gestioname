@@ -1,10 +1,21 @@
 <div id="<%= dom_id expense %>">
-  <p>
-    <strong>Name:</strong>
-    <%= expense.item_name %>
-  </p>
-  <p>
-    <strong>Description:</strong>
-    <%= expense.description %>
-  </p>
+  <%= simple_form_for expense, url: expense_path(expense), method: :patch do |form| %>
+    <p>
+      <%= form.input :item_name %>
+    </p>
+    <p>
+      <%= form.input :description %>
+    </p>
+    <p>
+      <%= form.input :amount %>
+    </p>
+    <div class="modal-footer">
+      <%= button_tag type: 'submit', class: 'btn btn-primary btn-icon' do %>
+        <i class="fa-regular fa-floppy-disk"></i>
+      <% end %>
+      <%= link_to expense, class: 'btn btn-danger', data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } do %>
+        <i class="fas fa-trash"></i>
+      <% end %>
+    </div>
+  <% end %>
 </div>

@@ -10,6 +10,8 @@ class ExpensesController < ApplicationController
   # GET /expense/1
   def show
     @companies = Company.where(user_id: current_user.id)
+    @company_id = params[:company_id]
+    @expense_id = params[:id]
   end
   # GET /expense/new
   def new

@@ -150,22 +150,20 @@
 
 <%#= render "companies/import_form" %>
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/apexcharts@latest"></script>
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
   // Verificar si el elemento ya existe antes de agregarlo
   if ($('#example_wrapper').length === 0) {
     var table = $('#example').DataTable({
-      buttons: ['copy', 'excel', 'pdf', 'print'],
-      "order": [[0, "asc"]],
-      "columnDefs": [
-        {
-          "targets": 'filterable',
-          "searchable": true,
-          "orderable": true
-        }
+      buttons: [
+        { extend: 'copy', titleAttr: 'Copy to clipboard', text: '<i class="fas fa-copy"></i>', exportOptions: { columns: ':not(:last-child)' } },
+        { extend: 'excel', titleAttr: 'Export to Excel', text: '<i class="fas fa-file-excel"></i>', exportOptions: { columns: ':not(:last-child)' } },
+        { extend: 'pdf', titleAttr: 'Export to PDF', text: '<i class="fas fa-file-pdf"></i>', exportOptions: { columns: ':not(:last-child)' } },
+        { extend: 'print', titleAttr: 'Print Table', text: '<i class="fas fa-print"></i>', exportOptions: { columns: ':not(:last-child)' } },
       ],
+      "order": [[0, "asc"]],
       "pagingType": "full_numbers",
       "pageLength": 5,
       "lengthMenu": [5, 10, 25, 50]
@@ -196,6 +194,7 @@
 });
 
 $(document).ready(function() {
-    $('[data-bs-toggle="popover"]').popover();
-  });
+  $('[data-bs-toggle="popover"]').popover();
+});
+
 </script>
