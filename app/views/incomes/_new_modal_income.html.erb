@@ -8,8 +8,8 @@
           <%= simple_form_for [@company, @income] do |f| %>
               <%= f.input :item_name %>
               <%= f.input :description %>
-              <%= f.input :date, order: [:day, :month, :year], html5:true %>
-              <%= f.input :amount %>
+              <%= f.input :date, order: [:day, :month, :year], html5: true, input_html: { id: 'date-field' } %>
+              <%= f.input :amount, input_html: { id: 'amount-input' } %>
               <div class="text-center">
                 <%= f.submit class: 'btn btn-primary' %>
               </div>
@@ -19,3 +19,25 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var amountInput = document.getElementById('amount-input');
+    amountInput.addEventListener('input', function() {
+      var value = amountInput.value.replace(/\D/g, ''); // Eliminar todos los caracteres que no sean dígitos
+      var formattedValue = '';
+      while (value.length > 3) {
+        formattedValue = '.' + value.substr(-3) + formattedValue;
+        value = value.substr(0, value.length - 3);
+      }
+      formattedValue = value + formattedValue;
+      amountInput.value = formattedValue;
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var dateField = document.getElementById('date-field');
+    var currentDate = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
+    dateField.value = currentDate;
+  });
+</script>
