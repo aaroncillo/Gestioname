@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   has_many :companies, dependent: :destroy
   has_one :subscription
-  has_many :payments  
+  has_many :payments
 
   # Validaciones.
 
@@ -33,4 +33,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
+
+
+  after_create :assign_trial_subscription
+
+  private
+
+  def assign_trial_subscription
+    self.build_subscription(subscription_type: 'trial')
+    self.subscription.save
+  end
 end
