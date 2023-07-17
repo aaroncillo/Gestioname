@@ -16,9 +16,9 @@
           <td>$ <%= register.amount %></td>
           <td><%= register.date.strftime('%m-%d-%Y')  %></td>
           <td><%= register.description %></td>
-          <td>
+          <td class="text-center">
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modalincome<%=register.id%>">
-              Delete
+              <i class="fa-solid fa-circle-info"></i>
             </button>
              <div class="modal fade" id="Modalincome<%=register.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <%= render "incomes/edit_income", income:register %>
@@ -33,13 +33,13 @@
           <td>$ <%= register.amount %></td>
           <td><%= register.date.strftime('%m-%d-%Y')  %></td>
           <td><%= register.description %></td>
-          <td>
+          <td class="text-center">
             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modalexpense<%=register.id%>">
-              Delete
+              <i class="fa-solid fa-circle-info"></i>
             </button>
             <div class="modal fade" id="Modalexpense<%=register.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <%= render "expenses/edit_expense", expense:register %>
-              </div>
+            </div>
           </td>
       </tr>
       <% end %>
