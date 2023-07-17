@@ -12,9 +12,14 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active" class="font-color-name">
-          <p>Hi,  <%= current_user.first_name %>!<p>
-          </li>
+          <div class="row d-flex">
+            <div class="col-7 align-self-center"><li><%= link_to "Go to Companies", companies_path, class:"nav-link btn btn-primary"%></li></div>
+            <div class="col-5 align-self-center">
+              <li class="nav-item active" class="font-color-name">
+                <p class="badge bg-primary text-wrap">Hi,  <%= current_user.first_name %>!<p>
+              </li>
+            </div>
+          </div>
           <li class="nav-item dropdown">
           <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
