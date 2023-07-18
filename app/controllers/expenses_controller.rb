@@ -25,12 +25,14 @@ class ExpensesController < ApplicationController
 
   #CHAT GPT
   def create
+    @company = Company.find(params[:company_id])
     @expense = Expense.new(expense_params)
     @expense.company_id = @company.id
     if @expense.save
       redirect_to @company, notice: "Expense was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @company, notice: "Expense was not created."
+      # render :new, status: :unprocessable_entity
     end
   end
 
