@@ -4,7 +4,6 @@ class CompaniesController < ApplicationController
 
   # GET /companies
   def index
-
   end
 
   # GET /companies/1
@@ -18,7 +17,6 @@ class CompaniesController < ApplicationController
     @total_amount = 0
     @incomes_amount = 0
     @expense_amount = 0
-
     @incomes.each do |income|
       @incomes_amount += income.amount
     end
@@ -37,7 +35,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies/new
   def new
-    if current_user.subscription == false && @companies.count < 2
+    if current_user.subscription.subscription_type == 'basic' && @companies.count < 2
       redirect_to companies_path, alert: 'You have reached the maximum number of companies allowed'
     else
       @company = Company.new
@@ -100,7 +98,6 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   end
-
 
   # Only allow a list of trusted parameters through.
   def company_params

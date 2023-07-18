@@ -165,11 +165,16 @@ alt="Artista Visual">
         <h1>Free Trial </h1>
         <h2>30 days</h2>
         <ul>
-          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage unlimited companies</li>
-          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access all graphs</li>
-          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Manage unlimited companies</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Access all graphs</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Free Support</li>
         </ul>
-          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
+          <% if current_user %>
+          <%= link_to "Subscribe",new_payment_path(subscription:"trial", amount:0), data:{turbo: false}, class: "btn btn-success btn-lg"%>
+        <% else %>
+          <% session[:intended_url] = new_payment_path(subscription: "trial", amount: 0) %>
+            <%= link_to "Subscribe",new_payment_path(subscription: "trial", amount: 0), class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
+        <% end %>
       </div>
     </div>
 
@@ -178,11 +183,16 @@ alt="Artista Visual">
           <h1>Basic </h1>
           <h2>US$9/mo</h2>
         <ul>
-          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage just one company</li>
-          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to limited graphs</li>
-          <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Manage just one company</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Access to limited graphs</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Free Support</li>
         </ul>
-        <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
+        <% if current_user %>
+            <%= link_to "Subscribe",new_payment_path(subscription:"basic", amount:9), data:{turbo: false}, class: "btn btn-success btn-lg"%>
+          <% else %>
+            <% session[:intended_url] = new_payment_path(subscription: "premium", amount: 9) %>
+            <%= link_to "Subscribe",new_payment_path(subscription: "basic", amount: 9), class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
+          <% end %>
     </div>
 
     <div class="card-category-subscription">
@@ -191,11 +201,16 @@ alt="Artista Visual">
           <h1>Premium </h1>
           <h2>US$12/mo</h2>
           <ul>
-            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Manage unlimited companies</li>
-            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Access to all the graphs</li>
-            <li class="d-flex"><i class="fa-solid fa-check" style="color: #ffffff;"></i>Free Support</li>
+            <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Manage unlimited companies</li>
+            <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Access to all the graphs</li>
+            <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Free Support</li>
         </div>
-          <%= link_to "Subscribe", "#", class: "btn btn-success btn-lg" %>
+          <% if current_user %>
+            <%= link_to "Subscribe",new_payment_path(subscription:"premium", amount:12), data:{turbo: false}, class: "btn btn-success btn-lg"%>
+          <% else %>
+            <% session[:intended_url] = new_payment_path(subscription: "premium", amount: 12) %>
+            <%= link_to "Subscribe",new_payment_path(subscription: "premium", amount: 12), class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
+          <% end %>
     </div>
   </div>
 </div>

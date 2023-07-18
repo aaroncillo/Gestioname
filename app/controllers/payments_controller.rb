@@ -39,7 +39,7 @@ class PaymentsController < ApplicationController
         new_sub.price_sub= 0
         new_sub.subscription_type = "trial"
       end
-       @payment.subscription = new_sub
+      @payment.subscription = new_sub
 
 
       if new_sub.save && @payment.save
