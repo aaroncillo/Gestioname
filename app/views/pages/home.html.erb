@@ -8,6 +8,11 @@
     </div>
     <div class="col-md-6 justify-center">
       <div class="banner">
+       <% if user_signed_in?%>
+        <div class="text-center">
+          <%= link_to "Dashboard", companies_path, class:"btn btn-success btn-lg"%>
+        </div>
+      <% end  %>
         <h1>Rock Your <span class="highlight">Finance$</span> with GESTIONAME!</h1>
         <h3>Simplify the Art of Financial Management</h3>
         <%# <h4>TRACK YOUR EXPENSES AND INCOMES OF YOUR SMALL BUSINESS</h4> %>
