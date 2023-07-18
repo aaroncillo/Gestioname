@@ -26,12 +26,9 @@
                 <td><%= register.description %></td>
                 <td style="text-align: center;">
                   <%#= link_to "Delete", company_expense_path(register.company_id, register.id) , class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
-                  <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Modalexpense<%=register.id%>">
-                    <i class="fa-solid fa-circle-info"></i>
-                  </button>
-                  <div class="modal fade" id="Modalexpense<%=register.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <%= render "expenses/edit_expense", expense:register %>
-                  </div>
+                  <%= link_to company_expense_path(register.company_id, register.id), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+                    <i class="fas fa-trash"></i>
+                  <% end %>
                 </td>
               </tr>
               <% end %>
