@@ -21,12 +21,13 @@ class IncomesController < ApplicationController
   end
     # POST /incomes
   def create
+    @company = Company.find(params[:company_id])
     @income = Income.new(income_params)
     @income.company_id = @company.id
     if @income.save
       redirect_to @company, notice: "income was successfully created."
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @company, notice: "income was not created."
     end
   end
   # PATCH/PUT /incomes/1
