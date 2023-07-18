@@ -84,6 +84,10 @@
   <% total_amount = 0 %>
   <% incomes_amount = 0 %>
   <% expense_amount = 0 %>
+
+  <h2 class="font-title-dashboard fw-bold mt-3">Recent entries</h2>
+  <%= render  "tabla_registers"%>
+
   <%# EN ESTE DIV DEBERIA IR GRAFICOS QUE IRÁ CAMBIANDO ??%>
   <% if current_user.subscription%>
   <h2 class="font-title-dashboard fw-bold mt-3">Income & Expense Graphs</h2>
@@ -141,9 +145,8 @@
   <%# EN ESTE DIV DEBERIA IR TODO EL CONTENIDO QUE IRÁ CAMBIANDO ??%>
   <%# link_to 'Importar Excel', import_company_path(@company), class: 'btn btn-primary' %>
 
-  <h2 class="font-title-dashboard fw-bold mt-3">Recent entries</h2>
-  <%= render  "tabla_registers"%>
-  <div class="mt-3">
+
+  <div style="margin-top: 100px; margin-bottom: 50px">
     <%= link_to "Back to companies", companies_path, class:"btn btn-primary" %>
   </div>
 </div>

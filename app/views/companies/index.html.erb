@@ -1,5 +1,8 @@
 <div class="container">
+  <% if current_user.subscription.subscription_type == 'basic'  %>
+  <% else %>
   <%= link_to "Create new company", new_company_path, class:"btn btn-success btn-lg mb-3 mt-5" %>
+  <% end %>
    <div class="row">
     <% @companies.each do |company| %>
       <% if company.logo.attached? %>

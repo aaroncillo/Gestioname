@@ -14,5 +14,4 @@ class ExpenseType < ApplicationRecord
   validates :expense_category, presence: true
   validates :expense_category, length: { maximum: 20 }
 
-
 end

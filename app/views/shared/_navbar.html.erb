@@ -13,10 +13,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <div class="row d-flex">
-            <div class="col-7 align-self-center"><li><%= link_to "Go to Companies", companies_path, class:"nav-link btn btn-primary"%></li></div>
-            <div class="col-5 align-self-center">
+            <div class="col-8 align-self-center">
               <li class="nav-item active" class="font-color-name">
-                <p class="badge bg-primary text-wrap">Hi,  <%= current_user.first_name %>!<p>
+                <p class="badge bg-primary text-wrap">Hi, <%= current_user.first_name %>!
+                </p>
               </li>
             </div>
           </div>

@@ -13,7 +13,7 @@
 class Subscription < ApplicationRecord
   belongs_to :user
 
-TYPES = %w(trial basic premium)
+  TYPES = %w(trial basic premium)
 
 validates :subscription_type, inclusion: { in: TYPES }
 end
