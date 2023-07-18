@@ -18,8 +18,7 @@
               <li class="nav-item active" class="font-color-name">
                 <p class="badge bg-primary text-wrap">Hi,  <%= current_user.first_name %>!
                 <br>
-                plan: <%= current_user.subscription.subscription_type.capitalize %></p>
-
+                plan: <%= current_user.subscription&.subscription_type&.capitalize %></p>
               </li>
             </div>
           </div>
