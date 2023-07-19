@@ -26,8 +26,11 @@
     <div class="why-choose-text">
       <h1>Why choose GESTIONAME?</h1>
       <div class="text-center p-3 ml-5">
-        <%= link_to "FREE TRIAL", new_user_registration_path, class:"btn btn-success btn-lg", data: { turbo_frame:
-        "signup_modal" } %>
+        <% if current_user %>
+          <%= link_to "FREE TRIAL",companies_path, class: "btn btn-success btn-lg"%>
+        <% else %>
+          <%= link_to "FREE TRIAL",companies_path, class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
+        <% end %>
       </div>
     </div>
 
@@ -114,7 +117,11 @@ alt="Artista Visual">
       <h1>How it works</h1>
       <p>Empower Your Small Business Growth</p>
     <div class="text-center">
-      <%= link_to "TRY IT NOW", new_user_registration_path, class:"btn btn-success btn-lg mt-5", data: { turbo_frame: "signup_modal" }%>
+    <% if current_user %>
+      <%= link_to "TRY IT NOW",companies_path, class: "btn btn-success btn-lg"%>
+    <% else %>
+      <%= link_to "TRY IT NOW",companies_path, class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
+    <% end %>
     </div>
   </div>
 
@@ -177,7 +184,6 @@ alt="Artista Visual">
           <% if current_user %>
           <%= link_to "Subscribe",new_payment_path(subscription:"trial", amount:0), data:{turbo: false}, class: "btn btn-success btn-lg"%>
         <% else %>
-          <% session[:intended_url] = new_payment_path(subscription: "trial", amount: 0) %>
             <%= link_to "Subscribe",new_payment_path(subscription: "trial", amount: 0), class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
         <% end %>
       </div>
@@ -195,7 +201,6 @@ alt="Artista Visual">
         <% if current_user %>
             <%= link_to "Subscribe",new_payment_path(subscription:"basic", amount:9), data:{turbo: false}, class: "btn btn-success btn-lg"%>
           <% else %>
-            <% session[:intended_url] = new_payment_path(subscription: "premium", amount: 9) %>
             <%= link_to "Subscribe",new_payment_path(subscription: "basic", amount: 9), class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
           <% end %>
     </div>
@@ -213,7 +218,6 @@ alt="Artista Visual">
           <% if current_user %>
             <%= link_to "Subscribe",new_payment_path(subscription:"premium", amount:12), data:{turbo: false}, class: "btn btn-success btn-lg"%>
           <% else %>
-            <% session[:intended_url] = new_payment_path(subscription: "premium", amount: 12) %>
             <%= link_to "Subscribe",new_payment_path(subscription: "premium", amount: 12), class:"btn btn-success btn-lg", data: { turbo_frame: "login_modal" }%>
           <% end %>
     </div>
