@@ -15,28 +15,28 @@
     <!-- Custom styles for this template-->
 </head>
 <body id="page-top">
-    <div id="wrapper">
-          <div class="row">
-            <% if @sidebar==false%>
-              <% else %>
-              <div class="col-sm-auto sticky-top barra">
-                  <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top barra">
-                    <div class="d-flex flex-column text-center hover-effect">
-                      <%= link_to "/", class: "text-decoration-none" do %>
-                        <%= content_tag(:i, "", class: "fa-solid fa-house fa-3x") %>
-                        <p class="fw-bold subtitulos">Home</p>
-                      <% end %>
-                      <%= link_to companies_path, class: "text-decoration-none" do %>
-                        <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x mt-4") %>
-                       <p class="fw-bold subtitulos">
-                          <%= (@companies && @companies.count < 2) ? 'My Company' : 'My Companies' %>
-                        </p>
-                      <% end %>
-                    <div class="<%= 'd-none' if controller_name == 'companies' && action_name == 'show' %>">
-                      <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
-                      <%= link_to new_company_path(current_user), class: "text-decoration-none" do %>
-                        <%= content_tag(:i, "", class: "fa-solid fa-plus fa-3x") %>
-                          <p class="fw-bold subtitulos">Add New Company</p>
+  <div id="wrapper">
+    <div class="row">
+      <% if @sidebar==false%>
+      <% else %>
+        <div class="col-sm-auto sticky-top barra">
+          <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top barra">
+            <div class="d-flex flex-column text-center hover-effect">
+            <%= link_to "/", class: "text-decoration-none" do %>
+              <%= content_tag(:i, "", class: "fa-solid fa-house fa-3x") %>
+                <p class="fw-bold subtitulos">Home</p>
+              <% end %>
+            <%= link_to companies_path, class: "text-decoration-none" do %>
+              <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x mt-4") %>
+              <p class="fw-bold subtitulos">
+              <%= (@companies && @companies.count < 2) ? 'My Company' : 'My Companies' %>
+              </p>
+            <% end %>
+              <div class="<%= 'd-none' if controller_name == 'companies' && action_name == 'show' || current_user.subscription.subscription_type == 'basic' %>">
+              <div class="d-flex flex-column text-center mt-2 p-2 hover-effect">
+                <%= link_to new_company_path(current_user), class: "text-decoration-none" do %>
+                <%= content_tag(:i, "", class: "fa-solid fa-plus fa-3x") %>
+                <p class="fw-bold subtitulos">Add New Company</p>
                       <% end %>
                       </div>
                     </div>
