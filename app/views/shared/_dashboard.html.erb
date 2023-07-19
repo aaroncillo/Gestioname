@@ -29,7 +29,7 @@
             <%= link_to companies_path, class: "text-decoration-none" do %>
               <%= content_tag(:i, "", class: "fa-solid fa-city fa-3x mt-4") %>
               <p class="fw-bold subtitulos">
-              <%= (@companies && @companies.count < 2) ? 'My Company' : 'My Companies' %>
+              <%= (@companies || current_user.companies.count < 2) ? 'My Company' : 'My Companies' %>
               </p>
             <% end %>
               <div class="<%= 'd-none' if controller_name == 'companies' && action_name == 'show' || current_user.subscription.subscription_type == 'basic' %>">
