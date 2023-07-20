@@ -4,5 +4,6 @@ class UsersController < ApplicationController
   end
 
   def subscriptions
+    @companies = Company.where(user_id: current_user.id)
   end
 end
