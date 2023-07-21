@@ -20,7 +20,7 @@
           <h2>US$9/mo</h2>
         <ul>
           <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Manage just one company</li>
-          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Access to limited graphs</li>
+          <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>No graphs</li>
           <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Free Support</li>
         </ul>
         <%= link_to "Subscribe", new_payment_path(subscription:"basic", amount:9), data:{turbo: false}, class: "btn btn-success btn-lg" %>
@@ -36,7 +36,7 @@
             <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Access to all the graphs</li>
             <li class="d-flex"><i class="fa-solid fa-check mt-1 mr-2" style="color: #ffffff;"></i>Free Support</li>
         </div>
-        
+
           <%= link_to "Subscribe",new_payment_path(subscription:"premium", amount:12), data:{turbo: false}, class: "btn btn-success btn-lg"%>
     </div>
   </div>
