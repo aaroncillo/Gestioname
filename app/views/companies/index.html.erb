@@ -14,35 +14,7 @@
             <div>
                 <%= link_to company.name_company,company_path(company), class:"btn btn-warning" %>
             </div>
-            <div class="row">
-              <div class="col"><%= link_to company_path(company), class: "btn btn-success", data: { bs_toggle: "modal", bs_target: "#exampleModal1" } do %>
-                <i class="fa-solid fa-pen-to-square"></i>
-              <% end %>
-              </div>
-              <div class="col">
-                <%= link_to company_path(company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-                  <i class="fa-solid fa-trash"></i>
-                <% end %>
-
-              </div>
-            </div>
           </div>
-      </div>
-      <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Edit company</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <%= render "form", company:company %>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-          </div>
-        </div>
       </div>
     <% end %>
 </div>
