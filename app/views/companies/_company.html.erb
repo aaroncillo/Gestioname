@@ -3,12 +3,14 @@
   <h1 class="font-title-dashboard2 fw-bold"><%= company.name_company %></h1>
     <%#= link_to "Edit company", edit_company_path(@company), class:"btn btn-primary" %>
     <!-- Button trigger modal -->
-  <div class="d-flex justify-content-between">
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-        Edit company
+  <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-primary mr-2" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+        <i class="fa-solid fa-pen-to-square"></i>
       </button>
     <div>
-      <%= link_to "Delete this company", company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
+      <%= link_to company_path(@company), class:"btn btn-danger", data:{turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+        <i class="fa-solid fa-trash"></i>
+      <% end %>
     </div>
   </div>
   <hr style="border: 1px solid grey;">
